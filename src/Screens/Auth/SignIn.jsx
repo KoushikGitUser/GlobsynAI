@@ -5,29 +5,34 @@ import google from "../../Assets/Images/google.webp";
 import { useNavigate } from "react-router-dom";
 import { colorConfigs } from "../../colorConfig";
 import { BiError } from "react-icons/bi";
+import SignOptionsLogo from "../../Components/SignOptionsLogo";
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   const [mobile, setMobile] = useState("");
   const [mobileError, setMobileError] = useState("");
 
-  const navigate = useNavigate();
+  const validation = () => {
+    let isValid = true;
+    const mobileRegex = /^[6-9]\d{9}$/;
+    if (!mobile) {
+      setMobileError("Mobile number is required");
+    } else if (!mobile.trim()) {
+      setMobileError("Blank spaces not allowed");
+    } else if (!mobileRegex.test(mobile)) {
+      setMobileError("Please enter valid mobile number");
+    } else {
+      return true;
+    }
+  };
+
+  const handleChange = (e) => {
+    setMobile(e.target.value);
+  };
 
   const signIn = () => {
-    const mobileRegex = /^[6-9]\d{9}$/;
-    if (mobile == "") {
-      setMobileError("Enter your mobile number");
-    } else if (mobile.trim().length == 0) {
-      console.log("enter blank");
-      setMobileError("Blank spaces not allowed");
-    } else if (isNaN(parseInt(mobile)) || !mobileRegex.test(mobile)) {
-      console.log(mobileRegex.test(mobile));
-
-      console.log("enter nan");
-      setMobileError("Please enter valid number");
-    } else if (mobile.length < 10) {
-      console.log("enter length10");
-      setMobileError("Number should be of length 10");
-    } else {
+    if (validation()) {
       localStorage.setItem("user_id", 2);
       navigate("/chat");
     }
@@ -36,24 +41,19 @@ export default function SignIn() {
   return (
     <div className="signin_main">
       <div style={{ height: "50px" }}></div>
-
       <div className="signin_wrapper">
-        <center style={{ fontSize: "55px" }}>
-          <center style={{ fontWeight: "700", color: "#ffbfb5" }}>IVT</center>
-          <center style={{ fontSize: "18px", color: "white" }}>
-            Interactive Virtual Tutor
-          </center>
-        </center>
-
+        <SignOptionsLogo />
         <div
-          style={{ marginTop: "100px", gap:mobileError ==""?"25px":"10px", alignItems: "center", }}
+          style={{ marginTop: "100px", alignItems: "center" }}
           className="sign_options_main"
         >
           <Inputs
-            setValue={setMobile}
+            setValue={handleChange}
             value={mobile}
             placeholder="Mobile no"
             type="text"
+            maxLength={10}
+            errors={mobileError}
           />
           <div
             style={{ display: mobileError === "" ? "none" : "flex" }}

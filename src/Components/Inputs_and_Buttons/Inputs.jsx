@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Inputs({width,type,placeholder,value,setValue}) {
+export default function Inputs({maxLength,type,placeholder,value,setValue,name,errors}) {
   return (
-    <div className='inputs'>
-  <input readonly maxLength={10} style={{marginLeft:"15px",height:"80%",outline:"none",border:"1px solid white",width:"82%"}} value={value} onChange={(e)=>setValue(e.target.value)} placeholder={placeholder}   type={type} />
+    <div style={{marginBottom:errors?"1px":"15px"}} className='inputs'>
+  <input name={name} maxLength={maxLength} readonly  style={{marginLeft:"15px",height:"80%",outline:"none",border:"1px solid white",width:"82%"}} value={value} onChange={setValue} placeholder={placeholder}   type={type} />
     </div>
  
   )

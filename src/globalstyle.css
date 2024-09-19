@@ -1,5 +1,5 @@
 .experiment{
-    color: #474747; 
+    color: #ff5b5b; 
 }
 
 
@@ -228,7 +228,7 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 5px;
   align-items: center;
 }
 .google_button{
@@ -277,10 +277,14 @@
 .inputs::placeholder{
     color: rgb(188, 188, 188);
 }
+.chat_wrapper{
+    width: 100%;
+    height: 100%;
+}
 .chat_main{
     display: flex;
+    justify-content: space-between;
     background-color: #fdf4fb;
- 
 }
 .chat_history{
     width: 17%;
@@ -292,6 +296,28 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 10px;
+}
+.chat_area_main{
+    width: 81%;
+    padding: 10px;
+    height: 93vh;
+}
+.chat_area{
+  height: 85%;
+  width: 64.5%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.chat_text{
+    padding: 20px 30px;
+    box-shadow: 5px 5px 5px 0px #d1d3fe;
+    border-radius: 50px;
+    width: fit-content;
+    align-self: flex-end;
+    background-color: white;
 }
 .chat_lower_part{
     width: 70%;
@@ -319,7 +345,7 @@
     position: relative;
 }
 .chat_input{
-    height: 40px;
+    height: 45px;
     border-radius: 50px;
     font-size: 19px;
     padding-left: 30px;
@@ -331,7 +357,7 @@
   color: white;
 }
 .error{
-    color: #ff7979;
+    color: #ffadad;
     font-size: 14px;
     font-weight: 500;
     align-items: center;
@@ -344,7 +370,7 @@
 .send_icon{
     position: absolute;
     right: -10px;
-    top: 10px;
+    top: 15px;
     cursor: pointer;
 }
 .lp_sign_options_main{
@@ -382,6 +408,15 @@
     .button_main{
         width: 40%;
     }
+    .nav_options{
+        width: 15%;
+    }
+    .logo_and_menu{
+        width: 22%;
+    }
+    .menu_items_main{
+        margin-left: 20%;
+    }
 }
 @media (max-width:1000px) {
     .globsyn_badge{
@@ -393,17 +428,73 @@
     .button_main{
         width: 50%;
     }
+    .logo_and_menu{
+        width: 25%;
+    }
+    .chat_history{
+        width: 20%;
+    }
+    .nav_options{
+        width: 16%;
+    }
+    .menu_items_main{
+        margin-left: 23.5%;
+    }
 }
 
 @media (max-width:800px) {
 .globsyn_badge{
     width: 25%;
 }
+.nav_options{
+    width: 19%;
+}
+.chat_history{
+    width: 22%;
+}
+.logo_and_menu{
+    width: 28%;
+}
+.menu_items_main{
+    margin-left: 26%;
+}
 }
 
 @media (max-width:700px) {
     .globsyn_badge{
         width: 28%;
+    }
+    .chat_history{
+        width: 27%;
+    }
+    .logo_and_menu{
+        width: 35%;
+    }
+    .nav_options{
+        width: 21.5%;
+    }
+    .menu_items_main{
+        margin-left: 32%;
+    }
+}
+@media (max-width:500px) {
+    .chat_history{
+       display: none;
+    }
+    .logo_and_menu{
+        width: 35%;
+    }
+    .logo{
+        display: none;
+    }
+    .nav_options{
+        width: 35%;
+    }
+    .menu_items_main{
+        margin-left: 3%;
+    }
+    .chat_input_main{
+        width: 85%;
     }
 }
 @media (min-width:500px) and (max-width:800px) {

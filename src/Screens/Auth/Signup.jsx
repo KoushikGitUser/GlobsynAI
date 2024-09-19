@@ -4,143 +4,146 @@ import Inputs from "../../Components/Inputs_and_Buttons/Inputs";
 import { useNavigate } from "react-router-dom";
 import { colorConfigs } from "../../colorConfig";
 import { BiError } from "react-icons/bi";
+import SignOptionsLogo from "../../Components/SignOptionsLogo";
 
 export default function Signup() {
-  //All states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [mobileError, setMobileError] = useState("");
-
   const naviagte = useNavigate();
+  //All states
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+  });
+  const [formErrors, setFormErrors] = useState({
+    nameError: "",
+    emailError: "",
+    mobileError: "",
+  });
 
-  const validate = () => {
+  //Full validation process for name,email and mobile number
+  const validateForm = () => {
+    let isValid = true;
+    const errors = {
+      nameError: "",
+      emailError: "",
+      mobileError: "",
+    };
+
+    // Name validation
+    if (!formData.name) {
+      errors.nameError = "Name is required";
+      isValid = false;
+    } else if (!formData.name.trim()) {
+      errors.nameError = "Blank spaces not allowed";
+      isValid = false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      errors.emailError = "Email is required";
+      isValid = false;
+    } else if (!formData.email.trim()) {
+      errors.emailError = "Blank spaces not allowed";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      errors.emailError = "Valid email address required.";
+      isValid = false;
+    }
+
+    // Mobile validation
     const mobileRegex = /^[6-9]\d{9}$/;
-    if (name == "") {
-      setNameError("Enter your name");
-      return false;
-    } else {
-      setNameError("");
+    if (!formData.mobile) {
+      errors.mobileError = "Mobile number is required";
+      isValid = false;
+    } else if (!formData.mobile.trim()) {
+      errors.mobileError = "Blank spaces not allowed";
+      isValid = false;
+    } else if (!mobileRegex.test(formData.mobile)) {
+      errors.mobileError = "Please enter a valid mobile number.";
+      isValid = false;
     }
 
-    if (email == "") {
-      setEmailError("Enter your email");
-      return false;
-    } else {
-      setEmailError("");
-    }
-
-    if (mobile == "") {
-      setMobileError("Enter mobile number");
-      return false;
-    } else {
-      setMobileError("");
-    }
-
-    if (name.trim().length == 0) {
-      setNameError("Blank spaces not allowed");
-      return false;
-    }
-    else{
-      setNameError("");
-    }
-    if (email.trim().length == 0) {
-      setEmailError("Blank spaces not allowed");
-      return false;
-    }
-    else{
-      setEmailError("");
-    }
-    if (mobile.trim().length == 0) {
-      setMobileError("Blank spaces not allowed");
-      return false;
-    }
-    else{
-      setMobileError("")
-    }
-    if (isNaN(parseInt(mobile)) || !mobileRegex.test(mobile)) {
-      setMobileError("Please enter valid number");
-    }
-    if (mobile.length < 10) {
-      setMobileError("Number should be of length 10");
-    } else {
-      return true;
-    }
+    setFormErrors(errors);
+    return isValid;
   };
 
-  const signUp = () => {
-    if (validate()) {
+  //Common onchange function
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  //SignUp function
+  const signUp = (e) => {
+    if (validateForm()) {
       naviagte("/signin");
     } else {
+      return false;
     }
   };
 
   return (
     <div className="signin_main">
       <div style={{ height: "30px" }}></div>
-
-      <center style={{ fontSize: "55px" }}>
-        <center style={{ fontWeight: "700", color: "#ffbfb5" }}>IVT</center>
-        <center style={{ fontSize: "18px", color: "white" }}>
-          Interactive Virtual Tutor
-        </center>
-      </center>
-
+      <SignOptionsLogo />
       <div
         style={{
           margin: "auto",
           marginTop: "70px",
-          gap:
-            mobileError == "" && emailError == "" && nameError == ""
-              ? "25px"
-              : "15px",
         }}
         className="sign_options_main"
       >
         <Inputs
-          value={name}
-          setValue={setName}
+          value={formData.name}
+          setValue={handleChange}
           placeholder="Name"
           width="38%"
           type="text"
+          name="name"
+          maxLength={20}
+          errors={formErrors.nameError}
         />
         <div
-          style={{ display: nameError === "" ? "none" : "flex" }}
+          style={{ display: formErrors.nameError === "" ? "none" : "flex" }}
           className="error"
         >
-          <BiError color="#ff7979" size={20} />
-          <div>{nameError}</div>
+          <BiError color="#ff5b5b" size={20} />
+          {formErrors.nameError && <span>{formErrors.nameError} </span>}
         </div>
         <Inputs
-          value={email}
-          setValue={setEmail}
+          value={formData.email}
+          setValue={handleChange}
           placeholder="Email id"
           width="38%"
           type="email"
+          name="email"
+          maxLength={30}
+          errors={formErrors.emailError}
         />
-
         <div
-          style={{ display: emailError === "" ? "none" : "flex" }}
+          style={{ display: formErrors.emailError === "" ? "none" : "flex" }}
           className="error"
         >
-          <BiError color="#ff7979" size={20} />
-          <div>{emailError}</div>
+          <BiError color="#ff5b5b" size={20} />
+          {formErrors.emailError && <span>{formErrors.emailError} </span>}
         </div>
         <Inputs
-          value={mobile}
-          setValue={setMobile}
+          value={formData.mobile}
+          setValue={handleChange}
           placeholder="Mobile no"
           width="38%"
           type="text"
+          name="mobile"
+          maxLength={10}
+          errors={formErrors.mobileError}
         />
         <div
-          style={{ display: mobileError === "" ? "none" : "flex" }}
+          style={{ display: formErrors.mobileError === "" ? "none" : "flex" }}
           className="error"
         >
-          <BiError color="#ff7979" size={20} />
-          <div>{mobileError}</div>
+          <BiError color="#ff5b5b" size={20} />
+          {formErrors.mobileError && <span>{formErrors.mobileError} </span>}
         </div>
 
         <Buttons
@@ -152,7 +155,7 @@ export default function Signup() {
           textColor="#474747"
           text="Sign up"
         />
-        <div style={{ color: "white", fontSize: "18px" }}>
+        <div style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>
           Already have an account?{" "}
           <span
             onClick={() => naviagte("/signin")}
