@@ -12,7 +12,7 @@ export default function ChatScreen() {
        <div className='chat_main'>
         <div className='chat_history'>
           <h3 style={{paddingLeft:"10px"}}>Chat History</h3>
-          <div>
+          <div> 
 
           </div>
 
