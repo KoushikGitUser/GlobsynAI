@@ -39,7 +39,7 @@ export default function LandingPage() {
 
       </div>
 
-      <div className='lp_lower_part'>
+      <div className='lp_lower_part'>   
         <div className='know_about'>
         Know about IVT
         </div>

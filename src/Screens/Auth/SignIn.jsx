@@ -33,6 +33,7 @@ export default function SignIn() {
 
   const signIn = () => {
     if (validation()) {
+      setMobileError("");
       localStorage.setItem("user_id", 2);
       navigate("/chat");
     }

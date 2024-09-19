@@ -288,7 +288,7 @@
 }
 .chat_history{
     width: 17%;
-    height: 93vh;
+    height: 90vh;
     box-shadow: 5px 0px 5px 0px #d7ccfd;
     background-color: white;
     display: flex;
@@ -300,11 +300,12 @@
 .chat_area_main{
     width: 81%;
     padding: 10px;
-    height: 93vh;
+    height: 90vh;
 }
 .chat_area{
   height: 85%;
-  width: 64.5%;
+  width: 55%;
+  margin-left: 9%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -323,17 +324,18 @@
     width: 70%;
 }
 .chat_input_section{
-    position: fixed;
+position: fixed;
     bottom: 0;
     z-index: 100;
     height: 100px;
-    width: 81%;
+    width: 80%;
+    background-color: #faf4ff;
+    z-index: 100;
 
 }
 .chat_input_section_inner{
     width: 90%;
     margin: auto;
-
     height: 80%;
     display: flex;
     justify-content: flex-start;
@@ -352,6 +354,35 @@
    width: 100%;
    outline: none;
    color: white;
+}
+.suggestion_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    width: 150px;
+    border: 1.5px solid rgb(153, 132, 183);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+}
+.suggestion_icon{
+    width: 95%;
+    margin: auto;
+    height: fit-content;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.suggestion_text{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    color: grey;
 }
 .know_about{
   color: white;

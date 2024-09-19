@@ -5,11 +5,29 @@ import { BiSend } from "react-icons/bi";
 import { colorConfigs } from "../colorConfig";
 import ChatSideHistory from "../Components/ChatSideHistory";
 import ChatInput from "../Components/ChatInput";
+import SuggestionsBox from "../Components/SuggestionsBox";
 
 export default function ChatScreen() {
+
+  let suggestionsArr = [
+    {
+      suggest:"New Brand Strategies"
+    },
+    {
+      suggest:"Digital Advertising"
+    },
+    {
+      suggest:"AWAT Analysis"
+    },
+    {
+      suggest:"Customer Engagement"
+    },
+  ]
+
   //All states
   const [chatArray, setChatArray] = useState([]);
   const [chatInput, setChatInput] = useState("");
+  const [isChatting,setIsChatting] = useState(false);
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -22,6 +40,8 @@ export default function ChatScreen() {
       setChatArray((chatArray) => {
         const updatedChatArray = [...chatArray, chatInput];
         setChatInput("");
+        setIsChatting(true);
+        
         return updatedChatArray;
       });
     }
@@ -40,12 +60,15 @@ export default function ChatScreen() {
       <div className="chat_main">
         <ChatSideHistory />
         <div className="chat_area_main">
-          <div className="chat_area">
+          
+          <div style={{flexDirection:isChatting?"column":"row",alignItems:isChatting?"":"center"}} className="chat_area">
+          <SuggestionsBox isChatting={isChatting} suggestionArray={suggestionsArr} />
+       
             {chatArray != [] &&
               chatArray.map((items, index) => {
                 return (
                   <>
-                    <div key={index} className="chat_text">
+                    <div key={index} style={{alignSelf:index%2==0?"flex-end":"flex-start"}} className="chat_text">
                       {items}
                     </div>
                   </>
