@@ -56,15 +56,18 @@ export default function ChatScreen() {
 
   return (
     <div className="chat_wrapper">
+      <div className="navbar_wrapper_chat">
       <Navbar />
+      </div>
+ 
       <div className="chat_main">
         <ChatSideHistory />
         <div className="chat_area_main">
           
-          <div style={{flexDirection:isChatting?"column":"row",alignItems:isChatting?"":"center"}} className="chat_area">
+          <div style={{flexDirection:isChatting?"column":"row",alignItems:isChatting?"":"center",}} className="chat_area">
           <SuggestionsBox isChatting={isChatting} suggestionArray={suggestionsArr} />
        
-            {chatArray != [] &&
+            {chatArray.length > 0 &&
               chatArray.map((items, index) => {
                 return (
                   <>

@@ -1,8 +1,11 @@
+@font-face {
+  font-family: SFReg;
+  src: url("./Assets/Fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+font-family:'Segoe UI', Tahoma, Geneva,Roboto, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

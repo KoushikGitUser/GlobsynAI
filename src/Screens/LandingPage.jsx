@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import gptLogo from '../Assets/Images/chatgptlogo.png';
 import gptLogoWhite from '../Assets/Images/gptLogoWhite2.png';
 import { colorConfigs } from '../colorConfig';
+import anthropic_white from '../Assets/Images/Anthropic logo_white.png';
 
 export default function LandingPage() {
   return (
@@ -22,8 +23,8 @@ export default function LandingPage() {
             <div className='ai_part'>
                 <div style={{color:"white",fontSize:"15px",fontWeight:"600"}}>Powered by</div>
                 <div style={{color:"white",fontSize:"27px",fontWeight:"600",fontStyle:"italic",paddingTop:"10px",display:"flex",alignItems:"center",gap:"5px"}}>
-                <img src={gptLogoWhite} style={{height:"30px",}} alt="" />
-                  Open AI</div>
+                <img src={anthropic_white} style={{height:"17px",}} alt="" />
+                 </div>
             </div>
 
         </div>
