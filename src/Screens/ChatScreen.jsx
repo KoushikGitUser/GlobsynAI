@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { FiSun } from "react-icons/fi";
 import { BiSend } from "react-icons/bi";
@@ -6,8 +6,13 @@ import { colorConfigs } from "../colorConfig";
 import ChatSideHistory from "../Components/ChatSideHistory";
 import ChatInput from "../Components/ChatInput";
 import SuggestionsBox from "../Components/SuggestionsBox";
+import { useSelector } from "react-redux";
 
 export default function ChatScreen() {
+
+
+  //All variables from redux
+  // const {chatHistoryInput} = useSelector((state)=>state.Get);
 
   let suggestionsArr = [
     {
@@ -53,6 +58,10 @@ export default function ChatScreen() {
       sendChat();
     }
   };
+
+  // useEffect(()=>{
+  //   setChatInput(chatHistoryInput)
+  // },[chatHistoryInput])
 
   return (
     <div className="chat_wrapper">
