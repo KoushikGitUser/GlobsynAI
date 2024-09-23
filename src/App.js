@@ -21,7 +21,7 @@ function PrivateRoute ({children}){
     children
   ):(
     <>
-    <Navigate to='/login' />
+    <Navigate to='/signin' />
     </>
   )
 

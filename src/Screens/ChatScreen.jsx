@@ -7,6 +7,7 @@ import ChatSideHistory from "../Components/ChatSideHistory";
 import ChatInput from "../Components/ChatInput";
 import SuggestionsBox from "../Components/SuggestionsBox";
 import { useSelector } from "react-redux";
+import chatAiLogo from '../Assets/Images/cropped-Globsyn-Business-School-Favicon.png';
 
 export default function ChatScreen() {
   //All variables from redux
@@ -62,9 +63,19 @@ export default function ChatScreen() {
     }
   };
 
-  useEffect(() => {
-    setChatInput(chatHistoryInput);
-  }, [chatHistoryInput]);
+  const addToChat =(payload)=>{
+    setChatArray((chatArray) => {
+      const updatedChatArray = [...chatArray, payload];
+      setChatInput("");
+      setIsChatting(true);
+
+      return updatedChatArray;
+    });
+  }
+
+  // useEffect(() => {
+  //   setChatInput(chatHistoryInput);
+  // }, [chatHistoryInput]);
 
   useEffect(()=>{
     lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -87,6 +98,7 @@ export default function ChatScreen() {
             className="chat_area"
           >
             <SuggestionsBox
+            addToChat={addToChat}
               isChatting={isChatting}
               suggestionArray={suggestionsArr}
             />
@@ -94,18 +106,19 @@ export default function ChatScreen() {
            {chatArray.length > 0 &&
               chatArray.map((items, index) => {
                 return (
-                  <>
+                  <div style={{display:index%2 === 0?"block":"flex",alignSelf: index % 2 === 0 ? "flex-end" : "flex-start",alignItems:"center",gap:"10px"}}>
+                    <img src={chatAiLogo} style={{height:"40px",display:index%2 === 0? "none":"block"}} alt="" />
                     <div
                       key={index}
                       style={{
-                        alignSelf: index % 2 === 0 ? "flex-end" : "flex-start",
+                        
                       }}
                       className="chat_text"
                     >
                       {items}
                     </div>
                   
-                  </>
+                  </div>
                 );
               })}
               <div ref={lastMessageRef} />
