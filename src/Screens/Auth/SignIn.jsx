@@ -6,34 +6,35 @@ import { useNavigate } from "react-router-dom";
 import { colorConfigs } from "../../colorConfig";
 import { BiError } from "react-icons/bi";
 import SignOptionsLogo from "../../Components/SignOptionsLogo";
+import GoToSignInSignUp from "../../Components/GoToSignInSignUp";
 
 export default function SignIn() {
   const navigate = useNavigate();
+  
 
-  const [mobile, setMobile] = useState("");
-  const [mobileError, setMobileError] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const validation = () => {
-    let isValid = true;
-    const mobileRegex = /^[6-9]\d{9}$/;
-    if (!mobile) {
-      setMobileError("Mobile number is required");
-    } else if (!mobile.trim()) {
-      setMobileError("Blank spaces not allowed");
-    } else if (!mobileRegex.test(mobile)) {
-      setMobileError("Please enter valid mobile number");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      setEmailError("Email is required");
+    } else if (!email.trim()) {
+      setEmailError("Blank spaces not allowed");
+    } else if (!emailRegex.test(email)) {
+      setEmailError("Please enter valid email Id");
     } else {
       return true;
     }
   };
 
   const handleChange = (e) => {
-    setMobile(e.target.value);
+    setEmail(e.target.value);
   };
 
   const signIn = () => {
     if (validation()) {
-      setMobileError("");
+      setEmailError("");
       localStorage.setItem("user_id", 2);
       navigate("/chat");
     }
@@ -50,18 +51,18 @@ export default function SignIn() {
         >
           <Inputs
             setValue={handleChange}
-            value={mobile}
-            placeholder="Mobile no"
+            value={email}
+            placeholder="Email ID"
             type="text"
-            maxLength={10}
-            errors={mobileError}
+            maxLength={1000}
+            errors={emailError}
           />
           <div
-            style={{ display: mobileError === "" ? "none" : "flex" }}
+            style={{ display: emailError === "" ? "none" : "flex" }}
             className="error"
           >
             <BiError color="#ff7979" size={20} />
-            <div>{mobileError}</div>
+            <div>{emailError}</div>
           </div>
           <Buttons
             onClick={signIn}
@@ -78,9 +79,10 @@ export default function SignIn() {
             Continue with Google{" "}
             <img style={{ height: "28px" }} src={google} alt="" />
           </div>
+        <GoToSignInSignUp path='/signup' type='Signin' />
         </div>
 
-        <div className="sin_lower">
+        <div onClick={()=>navigate("/help")} className="sin_lower">
           <div style={{ cursor: "pointer" }}>Need help?</div>
         </div>
       </div>

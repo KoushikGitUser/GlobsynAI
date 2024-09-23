@@ -6,9 +6,9 @@ export default function Histories({ historyArray, day }) {
 
   const dispatch = useDispatch();
 
-//   const historiesInput = (payload) => {
-//     dispatch(historiesToInput(payload));
-//   };
+  const historiesInput = (payload) => {
+    dispatch(historiesToInput(payload));
+  };
 
   return (
     <div className="histories_main">
@@ -16,7 +16,7 @@ export default function Histories({ historyArray, day }) {
         if (items.day == day) {
           return (
             <div
-            //   onClick={historiesInput(items.history)}
+               onClick={historiesInput(items.history)}
               className="histories"
               key={index}
             >

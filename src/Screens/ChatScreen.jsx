@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { FiSun } from "react-icons/fi";
 import { BiSend } from "react-icons/bi";
@@ -9,30 +9,33 @@ import SuggestionsBox from "../Components/SuggestionsBox";
 import { useSelector } from "react-redux";
 
 export default function ChatScreen() {
-
-
   //All variables from redux
-  // const {chatHistoryInput} = useSelector((state)=>state.Get);
+  const chatHistoryInput = useSelector(
+    (state) => state.Get?.chatHistoryInput || ""
+  );
+
+  const lastMessageRef = useRef(null);
+  console.log(chatHistoryInput);
 
   let suggestionsArr = [
     {
-      suggest:"New Brand Strategies"
+      suggest: "New Brand Strategies",
     },
     {
-      suggest:"Digital Advertising"
+      suggest: "Digital Advertising",
     },
     {
-      suggest:"AWAT Analysis"
+      suggest: "AWAT Analysis",
     },
     {
-      suggest:"Customer Engagement"
+      suggest: "Customer Engagement",
     },
-  ]
+  ];
 
   //All states
   const [chatArray, setChatArray] = useState([]);
   const [chatInput, setChatInput] = useState("");
-  const [isChatting,setIsChatting] = useState(false);
+  const [isChatting, setIsChatting] = useState(false);
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -41,12 +44,12 @@ export default function ChatScreen() {
 
   //Sending chat function
   const sendChat = () => {
-    if (chatInput.trim().length >0) {
+    if (chatInput.trim().length > 0) {
       setChatArray((chatArray) => {
         const updatedChatArray = [...chatArray, chatInput];
         setChatInput("");
         setIsChatting(true);
-        
+
         return updatedChatArray;
       });
     }
@@ -59,33 +62,55 @@ export default function ChatScreen() {
     }
   };
 
-  // useEffect(()=>{
-  //   setChatInput(chatHistoryInput)
-  // },[chatHistoryInput])
+  useEffect(() => {
+    setChatInput(chatHistoryInput);
+  }, [chatHistoryInput]);
+
+  useEffect(()=>{
+    lastMessageRef.current?.scrollIntoView({ behavior: 'smooth' });
+  },[chatArray])
 
   return (
     <div className="chat_wrapper">
       <div className="navbar_wrapper_chat">
-      <Navbar />
+        <Navbar />
       </div>
- 
+
       <div className="chat_main">
         <ChatSideHistory />
         <div className="chat_area_main">
-          
-          <div style={{flexDirection:isChatting?"column":"row",alignItems:isChatting?"":"center",}} className="chat_area">
-          <SuggestionsBox isChatting={isChatting} suggestionArray={suggestionsArr} />
-       
-            {chatArray.length > 0 &&
+          <div
+            style={{
+              flexDirection: isChatting ? "column" : "row",
+              alignItems: isChatting ? "" : "center",
+            }}
+            className="chat_area"
+          >
+            <SuggestionsBox
+              isChatting={isChatting}
+              suggestionArray={suggestionsArr}
+            />
+           {/* <div className="chats_area"> */}
+           {chatArray.length > 0 &&
               chatArray.map((items, index) => {
                 return (
                   <>
-                    <div key={index} style={{alignSelf:index%2==0?"flex-end":"flex-start"}} className="chat_text">
+                    <div
+                      key={index}
+                      style={{
+                        alignSelf: index % 2 === 0 ? "flex-end" : "flex-start",
+                      }}
+                      className="chat_text"
+                    >
                       {items}
                     </div>
+                  
                   </>
                 );
               })}
+              <div ref={lastMessageRef} />
+           {/* </div> */}
+          
           </div>
 
           <div className="chat_lower_part">

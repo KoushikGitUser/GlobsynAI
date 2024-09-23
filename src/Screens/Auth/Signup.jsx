@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { colorConfigs } from "../../colorConfig";
 import { BiError } from "react-icons/bi";
 import SignOptionsLogo from "../../Components/SignOptionsLogo";
+import GoToSignInSignUp from "../../Components/GoToSignInSignUp";
 
 export default function Signup() {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   //All states
   const [formData, setFormData] = useState({
     name: "",
@@ -77,7 +78,7 @@ export default function Signup() {
   //SignUp function
   const signUp = (e) => {
     if (validateForm()) {
-      naviagte("/signin");
+      navigate("/signin");
     } else {
       return false;
     }
@@ -155,15 +156,7 @@ export default function Signup() {
           textColor="#474747"
           text="Sign up"
         />
-        <div style={{ color: "white", fontSize: "18px", marginTop: "10px" }}>
-          Already have an account?{" "}
-          <span
-            onClick={() => naviagte("/signin")}
-            style={{ color: "#ffbfb5", paddingLeft: "10px", cursor: "pointer" }}
-          >
-            Sign in
-          </span>
-        </div>
+   <GoToSignInSignUp type='Signup' path='/signin' />
       </div>
     </div>
   );

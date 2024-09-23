@@ -32,11 +32,11 @@ export default function LandingPage() {
       <div className='lp_middle_part_main'>
         <center style={{fontSize:"90px",}}>
             <center style={{fontWeight:"700"}}>IVT</center>
-        <center style={{fontSize:"28px",}}>Interactive Virtual Tutor</center>
+        <center style={{fontSize:"28px",fontWeight:"500"}}>Interactive Virtual Tutor</center>
         </center>
   
-        <center>By</center>
-        <center style={{fontSize:"23px"}}>Globsyn Business School</center>
+        <center style={{color:"#c8c8c8"}}>By</center>
+        <center style={{fontSize:"22px",color:"#c8c8c8"}}>Globsyn Business School</center>
 
       </div>
 
