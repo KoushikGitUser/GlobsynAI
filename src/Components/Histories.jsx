@@ -2,13 +2,9 @@ import React from "react";
 import { historiesToInput } from "../Redux/Slices/GetSlices";
 import { useDispatch } from "react-redux";
 
-export default function Histories({ historyArray, day }) {
+export default function Histories({ historyArray, day,historyAddToChat}) {
 
   const dispatch = useDispatch();
-
-  const historiesInput = (payload) => {
-    dispatch(historiesToInput(payload));
-  };
 
   return (
     <div className="histories_main">
@@ -16,7 +12,7 @@ export default function Histories({ historyArray, day }) {
         if (items.day == day) {
           return (
             <div
-               onClick={historiesInput(items.history)}
+               onClick={()=> historyAddToChat(items?.history)}
               className="histories"
               key={index}
             >

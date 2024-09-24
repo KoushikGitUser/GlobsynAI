@@ -1,0 +1,142 @@
+import React, { useState, useEffect } from 'react';
+
+const ChatGPTChat = () => {
+  const [messages, setMessages] = useState([]);  // To store the conversation history
+  const [userInput, setUserInput] = useState('');  // To store the current user input
+  const [isLoading, setIsLoading] = useState(false);  // To show a loading state while waiting for the bot's response
+
+  // Handle user input change
+  const handleInputChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  // Handle form submission when user presses 'Enter'
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!userInput.trim()) return;
+
+    const newMessage = { role: 'user', content: userInput };  // Create a message object
+    setMessages((prevMessages) => [...prevMessages, newMessage]);  // Add user message to chat
+
+    setIsLoading(true);
+    setUserInput('');  // Clear input field after submission
+
+    // Simulate sending the user message to ChatGPT and getting a response
+    try {
+      const botResponse = await fetchChatGPTResponse(userInput);  // Call the API function to fetch response
+      const botMessage = { role: 'bot', content: botResponse };  // Create a bot message object
+      setMessages((prevMessages) => [...prevMessages, botMessage]);  // Add bot message to chat
+    } catch (error) {
+      console.error("Error fetching response:", error);
+    } finally {
+      setIsLoading(false);  // Stop showing loading indicator
+    }
+  };
+
+  // Fetch response from the ChatGPT API (You need to replace this with actual API call)
+  const fetchChatGPTResponse = async (userMessage) => {
+    // Simulate API call
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(`This is a simulated response to "${userMessage}"`);
+      }, 1000);
+    });
+  };
+
+  return (
+    <div style={styles.container}>
+      <div style={styles.chatBox}>
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            style={{
+              ...styles.message,
+              ...(message.role === 'user' ? styles.userMessage : styles.botMessage),
+            }}
+          >
+            {message.content}
+          </div>
+        ))}
+        {isLoading && <div style={styles.loadingMessage}>Bot is typing...</div>}
+      </div>
+
+      <form onSubmit={handleFormSubmit} style={styles.inputForm}>
+        <input
+          type="text"
+          value={userInput}
+          onChange={handleInputChange}
+          placeholder="Type your message here..."
+          style={styles.inputField}
+        />
+        <button type="submit" style={styles.sendButton} disabled={isLoading}>
+          Send
+        </button>
+      </form>
+    </div>
+  );
+};
+
+// Define some basic styles for the chat UI
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '100vh',
+    padding: '20px',
+  },
+  chatBox: {
+    flex: 1,
+    width: '100%',
+    maxWidth: '600px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    padding: '10px',
+    marginBottom: '10px',
+    overflowY: 'scroll',
+    backgroundColor: '#f9f9f9',
+  },
+  message: {
+    padding: '10px',
+    borderRadius: '8px',
+    margin: '5px 0',
+    maxWidth: '80%',
+    wordBreak: 'break-word',
+  },
+  userMessage: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#e1ffc7',
+  },
+  botMessage: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#d1d1d1',
+  },
+  loadingMessage: {
+    alignSelf: 'flex-start',
+    fontStyle: 'italic',
+    color: '#999',
+  },
+  inputForm: {
+    display: 'flex',
+    width: '100%',
+    maxWidth: '600px',
+  },
+  inputField: {
+    flex: 1,
+    padding: '10px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    marginRight: '10px',
+  },
+  sendButton: {
+    padding: '10px 20px',
+    borderRadius: '8px',
+    border: 'none',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    cursor: 'pointer',
+  },
+};
+
+export default ChatGPTChat;
