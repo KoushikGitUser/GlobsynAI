@@ -734,6 +734,7 @@
     }
     .suggestion_wrapper{
         width: 80%;
+        margin: auto;
     }
     .menu_items_main {
         margin-left: 2%;

@@ -56,31 +56,15 @@ export default function ChatScreen() {
   const lastMessageRef = useRef(null);
   console.log(chatHistoryInput);
 
-  // const sendChat = () => {
-  //   if (chatInput.trim().length > 0) {
-  //     setMessages((messages) => {
-  //       const updatedChatArray = [...messages, chatInput];
-  //       setChatInput("");
-  //       setIsChatting(true);
-
-  //       return updatedChatArray;
-  //     });
-  //   }
-  // };
-
   //Sending chat function
   const sendChat = () => {
     if (chatInput.trim().length > 0) {
       setChatInput("");
       setIsChatting(true);
-      setMessages([...messages, chatInput]);
-    }
-  };
-
-  const sendAsAssistant = (message) => {
-    if (chatInput.trim().length > 0) {
-      setIsChatting(true);
+      const message = {type:"user",text:chatInput}
       setMessages([...messages, message]);
+      //message to be sent -> chatInput
+      //Api call(chatInput)
     }
   };
 
@@ -99,13 +83,11 @@ export default function ChatScreen() {
 
   //adding suggestions to chats
   const addToChat = (payload) => {
-    setMessages((messages) => {
-      const updatedChatArray = [...messages, payload];
-      setChatInput("");
-      setIsChatting(true);
-
-      return updatedChatArray;
-    });
+    setMessages([...messages,payload]);
+    setChatInput("");
+    setIsChatting(true);
+    //message to be sent to ChatGPT -> payload.text
+    //Api call(payload.text)
   };
 
   useEffect(() => {
@@ -137,7 +119,6 @@ export default function ChatScreen() {
               isChatting={isChatting}
               suggestionArray={suggestionsArr}
             />
-            {/* <div className="chats_area"> */}
             {messages.length > 2 &&
               messages.map((items, index) => {
                 if (items.text.length > 0) {
@@ -167,7 +148,6 @@ export default function ChatScreen() {
                 }
               })}
             <div ref={lastMessageRef} />
-            {/* </div> */}
           </div>
 
           <div className="chat_lower_part">
@@ -183,22 +163,12 @@ export default function ChatScreen() {
                   setValue={handleChange}
                 />
 
-                <button
-                  onClick={() =>
-                    sendAsAssistant({ type: "assistant", text: chatInput })
-                  }
-                >
-                  Send as GPT
-                </button>
-
-                <button
-                  onClick={() => sendChat({ type: "user", text: chatInput })}
-                >
-                  Send as User
-                </button>
+               
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>

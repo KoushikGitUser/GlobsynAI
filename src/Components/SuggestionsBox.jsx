@@ -7,7 +7,7 @@ export default function SuggestionsBox({suggestionArray, icon,isChatting,addToCh
       {suggestionArray?.map((items,index)=>{
       if(index <= 1){
         return(
-          <div onClick={()=> addToChat(items.suggest)} style={{display:isChatting?"none":"flex"}} className="suggestion_main">
+          <div onClick={()=> addToChat({type:"user",text:items?.suggest})} style={{display:isChatting?"none":"flex"}} className="suggestion_main">
           <div className="suggestion_icon"></div>
           <div className="suggestion_text">{items.suggest}</div>
         </div>
@@ -21,7 +21,7 @@ export default function SuggestionsBox({suggestionArray, icon,isChatting,addToCh
       {suggestionArray?.map((items,index)=>{
       if(index > 1){
         return(
-          <div onClick={()=> addToChat(items.suggest)} style={{display:isChatting?"none":"flex"}} className="suggestion_main">
+          <div onClick={()=> addToChat({type:"user",text:items?.suggest})} style={{display:isChatting?"none":"flex"}} className="suggestion_main">
           <div className="suggestion_icon"></div>
           <div className="suggestion_text">{items.suggest}</div>
         </div>
