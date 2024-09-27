@@ -162,7 +162,7 @@ export default function ChatScreen() {
                   value={chatInput}
                   setValue={handleChange}
                 />
-
+                 
                
               </div>
             </div>

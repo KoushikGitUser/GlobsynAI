@@ -32,11 +32,17 @@ export default function SignIn() {
     setEmail(e.target.value);
   };
 
-  const signIn = () => {
+  const handleSignIn = () => {
     if (validation()) {
       setEmailError("");
       localStorage.setItem("user_id", 2);
       navigate("/chat");
+    }
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSignIn();
     }
   };
 
@@ -56,6 +62,7 @@ export default function SignIn() {
             type="text"
             maxLength={1000}
             errors={emailError}
+            onKeyDown={onKeyDown}
           />
           <div
             style={{ display: emailError === "" ? "none" : "flex" }}
@@ -65,7 +72,7 @@ export default function SignIn() {
             <div>{emailError}</div>
           </div>
           <Buttons
-            onClick={signIn}
+            onClick={handleSignIn}
             className="button_main"
             bgColor={colorConfigs.buttonColor}
             textSize="19px"

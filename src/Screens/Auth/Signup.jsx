@@ -76,11 +76,18 @@ export default function Signup() {
   };
 
   //SignUp function
-  const signUp = (e) => {
+  const handleSignUp = (e) => {
     if (validateForm()) {
       navigate("/signin");
     } else {
       return false;
+    }
+  };
+
+  //run signup function on pressing enter key
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSignUp();
     }
   };
 
@@ -104,6 +111,7 @@ export default function Signup() {
           name="name"
           maxLength={20}
           errors={formErrors.nameError}
+          onKeyDown={onKeyDown}
         />
         <div
           style={{ display: formErrors.nameError === "" ? "none" : "flex" }}
@@ -121,6 +129,7 @@ export default function Signup() {
           name="email"
           maxLength={30}
           errors={formErrors.emailError}
+          onKeyDown={onKeyDown}
         />
         <div
           style={{ display: formErrors.emailError === "" ? "none" : "flex" }}
@@ -138,6 +147,7 @@ export default function Signup() {
           name="mobile"
           maxLength={10}
           errors={formErrors.mobileError}
+          onKeyDown={onKeyDown}
         />
         <div
           style={{ display: formErrors.mobileError === "" ? "none" : "flex" }}
@@ -148,7 +158,7 @@ export default function Signup() {
         </div>
 
         <Buttons
-          onClick={signUp}
+          onClick={handleSignUp}
           className="button_main"
           width="40.5%"
           bgColor={colorConfigs.buttonColor}
