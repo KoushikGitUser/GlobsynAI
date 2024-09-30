@@ -6,7 +6,7 @@ import { LiaUserEditSolid } from 'react-icons/lia'
 import { LuSettings } from 'react-icons/lu'
 import { useNavigate } from 'react-router-dom'
 
-export default function ProfileOrMenuItems({type,close}) {
+export default function ProfileOrMenuItems({type,close,setOpenSettingsPop}) {
 
   const navigate = useNavigate();
 
@@ -14,7 +14,6 @@ export default function ProfileOrMenuItems({type,close}) {
     localStorage.clear();
     navigate("/signin");
   }
-
 
   return (
     <div className={type === "Menu" ? "menu_items_main":"profile_items_main"} >
@@ -35,7 +34,7 @@ export default function ProfileOrMenuItems({type,close}) {
           
         </div>
         <div className='options'>
-        <div onClick={()=> type === "Menu"?navigate("/help"):navigate("/settings")} className='options_inner'>
+        <div onClick={()=> type === "Menu"?navigate("/help"):setOpenSettingsPop(true)} className='options_inner'>
           {type === "Menu"?<IoMdStarOutline size={18} />:<LuSettings size={18} />}
        
        <div>

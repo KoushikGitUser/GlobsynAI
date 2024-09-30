@@ -20,16 +20,16 @@ export default function ChatScreen() {
 
   let suggestionsArr = [
     {
-      suggest: "New Brand Strategies",
+      suggest: "Web Developing",
     },
     {
-      suggest: "Digital Advertising",
+      suggest: "Digital Marketing",
     },
     {
-      suggest: "AWAT Analysis",
+      suggest: "Mobile App Development",
     },
     {
-      suggest: "Customer Engagement",
+      suggest: "Social Networking",
     },
   ];
 
@@ -111,6 +111,7 @@ export default function ChatScreen() {
             style={{
               flexDirection: isChatting ? "column" : "row",
               alignItems: isChatting ? "" : "center",
+              margin:"auto"
             }}
             className="chat_area"
           >
@@ -162,6 +163,7 @@ export default function ChatScreen() {
                   value={chatInput}
                   setValue={handleChange}
                 />
+                
                  
                
               </div>

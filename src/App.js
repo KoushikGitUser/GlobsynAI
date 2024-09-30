@@ -8,7 +8,6 @@ import LandingPage from './Screens/LandingPage';
 import Signup from './Screens/Auth/Signup';
 import Update from './Screens/Update';
 import Help from './Screens/Help';
-import Settings from './Screens/Settings';
 import EditProfile from './Screens/EditProfile';
 import About from './Screens/About';
 
@@ -57,10 +56,6 @@ const PublicRouteNames = [
   {
     path:"/help",
     Component:<Help/>
-  },
-  {
-    path:"/settings",
-    Component:<Settings/>
   },
   {
     path:"/about",

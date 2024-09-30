@@ -6,6 +6,8 @@ import { PiUserCircleFill } from "react-icons/pi";
 import { BiDotsVertical } from "react-icons/bi";
 import ProfileOrMenuItems from "./ProfileOrMenuItems";
 import { colorConfigs } from "../colorConfig";
+import { GoInfo } from "react-icons/go";
+import SettingsPopup from "./SettingsPopup";
 
 
 export default function Navbar() {
@@ -15,7 +17,7 @@ export default function Navbar() {
     //All states
     const [clickMenu,setClickMenu] = useState(false);
     const [clickProfile,setClickProfile] = useState(false);
-
+    const [openSettingsPop,setOpenSettingsPop] = useState(false);
 
   return (
     <>
@@ -38,7 +40,7 @@ export default function Navbar() {
             </div>
             </div>
             <div>
-            <MdOutlineQuestionMark  size={20} color={colorConfigs.nav_options}/>
+            <GoInfo  size={20} color={colorConfigs.nav_options}/>
             </div>
             {
                 user_id !=="" && user_id !== null && user_id !== undefined?<div onClick={()=>{
@@ -49,17 +51,20 @@ export default function Navbar() {
                   <PiUserCircleFill  size={25} color={colorConfigs.nav_options}/>
                   </div>
              
-                </div>:<div style={{color:"#6450e8"}}>abc</div>
+                </div>:<div style={{color:"#6450e8"}}></div>
             }
             
         </div>
       </div>
     </div>
     {clickMenu? <div className="">
-    <ProfileOrMenuItems close={setClickMenu} type="Menu" />
+    <ProfileOrMenuItems setOpenSettingsPop={setOpenSettingsPop} close={setClickMenu} type="Menu" />
     </div>:null}
     {clickProfile?<div style={{position:"relative"}}>
-     <ProfileOrMenuItems close={setClickProfile} type='Profile' />
+     <ProfileOrMenuItems setOpenSettingsPop={setOpenSettingsPop} close={setClickProfile} type='Profile' />
+    </div>:null}
+    {openSettingsPop?<div >
+      <SettingsPopup closeSettingsPop={setOpenSettingsPop} />
     </div>:null}
    
    
