@@ -34,7 +34,15 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop}) {
           
         </div>
         <div className='options'>
-        <div onClick={()=> type === "Menu"?navigate("/help"):setOpenSettingsPop(true)} className='options_inner'>
+        <div onClick={()=> {
+          if(type === "Menu"){
+            navigate("/help")
+          }
+          else{
+            setOpenSettingsPop(true);
+            close()
+          }
+        }} className='options_inner'>
           {type === "Menu"?<IoMdStarOutline size={18} />:<LuSettings size={18} />}
        
        <div>

@@ -8,6 +8,7 @@ import ProfileOrMenuItems from "./ProfileOrMenuItems";
 import { colorConfigs } from "../colorConfig";
 import { GoInfo } from "react-icons/go";
 import SettingsPopup from "./SettingsPopup";
+import ChatHistoryMobile from "./ChatHistoryMobile";
 
 
 export default function Navbar() {
@@ -65,6 +66,9 @@ export default function Navbar() {
     </div>:null}
     {openSettingsPop?<div >
       <SettingsPopup closeSettingsPop={setOpenSettingsPop} />
+    </div>:null}
+    {clickMenu?<div>
+      <ChatHistoryMobile/>
     </div>:null}
    
    

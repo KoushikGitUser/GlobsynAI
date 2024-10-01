@@ -106,6 +106,7 @@ export default function ChatScreen() {
 
       <div className="chat_main">
         <ChatSideHistory historyAddToChat={historyAddToChat} />
+        
         <div className="chat_area_main">
           <div
             style={{
