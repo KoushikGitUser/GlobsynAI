@@ -1,0 +1,40 @@
+.profile_main_wrapper{
+    width: 99%;
+    margin: auto;
+    height: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pro_settings_options{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+}
+.profile_photo{
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px 0px rgb(181, 181, 181);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.profile_photo_edit_icon{
+    position: absolute;
+    top: 45px;
+    right: -10px;
+    background-color: rgb(166, 136, 210);
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

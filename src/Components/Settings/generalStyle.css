@@ -9,8 +9,8 @@
 }
 .gen_settings_options{
     width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,6 @@
 
 .manage_button{
     padding: 10px;
-    border: 1px solid rgb(205, 205, 205) ;
     border-radius: 50px;
     display: flex;
     justify-content: center;
