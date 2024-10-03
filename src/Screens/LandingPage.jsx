@@ -6,6 +6,8 @@ import gptLogo from '../Assets/Images/chatgptlogo.png';
 import gptLogoWhite from '../Assets/Images/gptLogoWhite2.png';
 import { colorConfigs } from '../colorConfig';
 import anthropic_white from '../Assets/Images/Anthropic logo_white.png';
+import logoImg from '../Assets/Images/IVTVerticalLogoWhite.png';
+
 
 export default function LandingPage() {
   return (
@@ -29,16 +31,17 @@ export default function LandingPage() {
 
         </div>
 
-      <div className='lp_middle_part_main'>
+        <div className="logo_wrapper">
+   <img style={{height:"100%"}} src={logoImg} alt="" />
+   </div>
+
+      {/* <div className='lp_middle_part_main'>
         <center style={{fontSize:"90px",}}>
             <center style={{fontWeight:"700"}}>IVT</center>
         <center style={{fontSize:"28px",fontWeight:"500"}}>Interactive Virtual Tutor</center>
         </center>
-  
-        {/* <center style={{color:"#c8c8c8"}}>By</center>
-        <center style={{fontSize:"22px",color:"#c8c8c8"}}>Globsyn Business School</center> */}
 
-      </div>
+      </div> */}
 
       <div className='lp_lower_part'>   
         <div className='know_about'>

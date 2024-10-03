@@ -7,6 +7,7 @@ import { colorConfigs } from "../../colorConfig";
 import { BiError } from "react-icons/bi";
 import SignOptionsLogo from "../../Components/SignOptionsLogo";
 import GoToSignInSignUp from "../../Components/GoToSignInSignUp";
+import logoImg from '../../Assets/Images/IVTVerticalLogoWhite.png';
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -48,11 +49,13 @@ export default function SignIn() {
 
   return (
     <div className="signin_main">
-      <div style={{ height: "50px" }}></div>
+      <div style={{ height: "150px" }}></div>
       <div className="signin_wrapper">
-        <SignOptionsLogo />
+      <div className="logo_wrapper">
+   <img style={{height:"100%"}} src={logoImg} alt="" />
+   </div>
         <div
-          style={{ marginTop: "100px", alignItems: "center" }}
+          style={{ marginTop: "50px", alignItems: "center" }}
           className="sign_options_main"
         >
           <Inputs

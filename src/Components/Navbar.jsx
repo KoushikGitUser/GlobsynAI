@@ -8,6 +8,7 @@ import { colorConfigs } from "../colorConfig";
 import { GoInfo } from "react-icons/go";
 import SettingsPopup from "./SettingsPopup";
 import ChatHistoryMobile from "./ChatHistoryMobile";
+import logoImg from '../Assets/Images/IVTInsidePageLogoWhite.png'
 
 
 export default function Navbar({historyAddToChat}) {
@@ -26,7 +27,9 @@ export default function Navbar({historyAddToChat}) {
      <div style={{background:colorConfigs.navbar_bg}} className="nav_main">
       <div className="nav_inner">
         <div className="logo_and_menu">
-            <div className="logo">LOGO</div>
+            <div className="logo">
+              <img style={{height:"40px"}} src={logoImg} alt="" />
+            </div>
             <div className="menu_button_desktop" onClick={()=>{
                 setClickMenu(!clickMenu);
                 setClickProfile(false);
