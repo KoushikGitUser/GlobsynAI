@@ -54,7 +54,6 @@ export default function ChatScreen() {
 
   //useref for auto scroll to last when send or receive new messages
   const lastMessageRef = useRef(null);
-  console.log(chatHistoryInput);
 
   //Sending chat function
   const sendChat = () => {
@@ -101,7 +100,7 @@ export default function ChatScreen() {
   return (
     <div className="chat_wrapper">
       <div className="navbar_wrapper_chat">
-        <Navbar />
+        <Navbar historyAddToChat={historyAddToChat} />
       </div>
 
       <div className="chat_main">

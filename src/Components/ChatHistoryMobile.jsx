@@ -1,8 +1,9 @@
 import React from 'react'
 import anthropic from '../Assets/Images/Anthropic logo.png'
 import Histories from './Histories'
+import { IoArrowBackSharp } from 'react-icons/io5'
 
-export default function ChatHistoryMobile({addToChat,historyAddToChat}) {
+export default function ChatHistoryMobile({addToChat,historyAddToChat,openSideHistoryMobile,closeSideHistoryMobile}) {
     const historyArray = [
         {
           history:"Write an essay on Democracy and what are its bad effects",
@@ -31,8 +32,15 @@ export default function ChatHistoryMobile({addToChat,historyAddToChat}) {
       ]
     
       return (
-        <div className='chat_history_wrapper_mobile'>
+        <>
+               <div onClick={()=>closeSideHistoryMobile(false)} className='chat_history_main_wrapper_mobile'>
+                </div>
+    <div className='chat_history_wrapper_mobile'>
           <div className='side_history_top_blank_nav'>
+            <div onClick={()=>closeSideHistoryMobile(false)} className='close_side_history_mobile_icon'> 
+            <IoArrowBackSharp color='#9578ff' size={22} />
+            </div>
+         
     
           </div>
           <div className='chat_history'>
@@ -58,5 +66,9 @@ export default function ChatHistoryMobile({addToChat,historyAddToChat}) {
        
     
       </div>
+        </>
+ 
+  
+    
       )
 }

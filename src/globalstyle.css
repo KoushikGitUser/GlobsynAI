@@ -324,8 +324,23 @@
 
 .side_history_top_blank_nav{
     height: 60px;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+}
+.close_side_history_mobile_icon{
+    width: 15%;
+    height: 60%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px 0px #d7ccfd;
 }
 
 .chat_history_wrapper{
@@ -517,6 +532,12 @@
     gap: 10px;
     align-items: flex-end;
 }
+.settings_pop_main_wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.387);
+}
 
 .settings_pop_main{
     position: fixed;
@@ -527,7 +548,6 @@
     left: 30%;
     top: 20%;
     border-radius: 15px;
-    box-shadow: 1px 1px 10px 0px rgb(177, 177, 177);
 }
 .settings_pop_upper{
     width: 95%;
@@ -539,7 +559,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
-    border-bottom: 2px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
 }
 .settings_content_main{
     width: 95%;
@@ -553,7 +573,7 @@
 .settings_pop_sidebar{
     width: 30%;
     height: 90%;
-    border-right: 2px solid lightgray;
+    border-right: 1px solid lightgray;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -598,11 +618,26 @@
 .chat_history_wrapper_mobile{
     background-color: white;
     width: 80%;
-    height: 92.5%;
-    box-shadow: 5px 0px 5px 0px #d7ccfd;
+    height: 95%;
     position: fixed;
-    z-index: 99;
+    z-index: 15;
+    transition: all 0.5s ease-in-out;
 }
+
+.menu_button_desktop{
+    color: white;
+}
+.menu_button_mobile{
+    display: none;
+}
+.chat_history_main_wrapper_mobile{
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.367);
+    z-index: 12;
+}
+
 
 @media (min-width : 1700px){
     .chat_history_wrapper{
@@ -888,6 +923,12 @@
     }
     .settings_options{
         padding: 10px;
+    }
+    .menu_button_desktop{
+        display: none;
+    }
+    .menu_button_mobile{
+        display: block;
     }
 }
 

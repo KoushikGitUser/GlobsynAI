@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TiThMenu } from "react-icons/ti";
 import { FaRegBell } from "react-icons/fa6";
-import { MdOutlineQuestionMark } from "react-icons/md";
 import { PiUserCircleFill } from "react-icons/pi";
 import { BiDotsVertical } from "react-icons/bi";
 import ProfileOrMenuItems from "./ProfileOrMenuItems";
@@ -11,14 +10,16 @@ import SettingsPopup from "./SettingsPopup";
 import ChatHistoryMobile from "./ChatHistoryMobile";
 
 
-export default function Navbar() {
+export default function Navbar({historyAddToChat}) {
 
     const user_id = localStorage.getItem("user_id");
     
     //All states
     const [clickMenu,setClickMenu] = useState(false);
     const [clickProfile,setClickProfile] = useState(false);
+    const [openSideHistory,setOpenSideHistory] = useState(false);
     const [openSettingsPop,setOpenSettingsPop] = useState(false);
+    const [settingsNumber,setSettingsNumber] = useState(0);
 
   return (
     <>
@@ -26,8 +27,14 @@ export default function Navbar() {
       <div className="nav_inner">
         <div className="logo_and_menu">
             <div className="logo">LOGO</div>
-            <div onClick={()=>{
+            <div className="menu_button_desktop" onClick={()=>{
                 setClickMenu(!clickMenu);
+                setClickProfile(false);
+            }}> 
+                {clickMenu?<BiDotsVertical size={25} color="white" />:<TiThMenu size={25} color="white" />}
+            </div>
+            <div className="menu_button_mobile" onClick={()=>{
+                setOpenSideHistory(!openSideHistory)
                 setClickProfile(false);
             }}> 
                 {clickMenu?<BiDotsVertical size={25} color="white" />:<TiThMenu size={25} color="white" />}
@@ -59,20 +66,20 @@ export default function Navbar() {
       </div>
     </div>
     {clickMenu? <div className="">
-    <ProfileOrMenuItems setOpenSettingsPop={setOpenSettingsPop} close={setClickMenu} type="Menu" />
+    <ProfileOrMenuItems setSettingsNumber={setSettingsNumber} setOpenSettingsPop={setOpenSettingsPop} close={setClickMenu} type="Menu" />
     </div>:null}
     {clickProfile?<div style={{position:"relative"}}>
-     <ProfileOrMenuItems setOpenSettingsPop={setOpenSettingsPop} close={setClickProfile} type='Profile' />
+     <ProfileOrMenuItems setSettingsNumber={setSettingsNumber} setOpenSettingsPop={setOpenSettingsPop} close={setClickProfile} type='Profile' />
     </div>:null}
     {openSettingsPop?<div >
-      <SettingsPopup closeSettingsPop={setOpenSettingsPop} />
+      <SettingsPopup settingsNumber={settingsNumber} closeSettingsPop={setOpenSettingsPop} />
     </div>:null}
-    {clickMenu?<div>
-      <ChatHistoryMobile/>
+    {openSideHistory?<div>
+      <ChatHistoryMobile openSideHistoryMobile={openSideHistory} historyAddToChat={historyAddToChat} closeSideHistoryMobile={setOpenSideHistory}/>
     </div>:null}
    
    
-    </>
+    </> 
    
   );
 }
