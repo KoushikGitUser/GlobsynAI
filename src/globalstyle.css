@@ -159,7 +159,7 @@
 }
 
 .lp_main_wrapper {
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -168,9 +168,9 @@
 
 .lp_upper_part {
     width: 85%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
+    margin-top: 70px;
 }
 
 .globsyn_badge {
@@ -232,11 +232,10 @@
 
 .lp_lower_part {
     width: 85%;
-    margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
-    margin-top: 10px;
+    margin-bottom: 70px;
 }
 
 .sign_options_main {
@@ -268,7 +267,7 @@
 }
 
 .signin_wrapper {
-    height: 90%;
+    height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -641,6 +640,12 @@
     display:flex;
     justify-content:center;
 }
+.logo_wrapper_lp{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
 
 
 @media (min-width : 1700px){
@@ -662,6 +667,9 @@
     }
     .logo_wrapper{
         height: 35%;
+    }
+    .logo_wrapper_lp{
+        height: 45%;
     }
 }
 
@@ -696,6 +704,9 @@
     .logo_wrapper{
         height: 30%;
     }
+    .logo_wrapper_lp{
+        height: 45%;
+    }
     
 }
 
@@ -721,6 +732,9 @@
     }
     .logo_wrapper{
         height: 30%;
+    }
+    .logo_wrapper_lp{
+        height: 45%;
     }
 }
 
@@ -769,6 +783,9 @@
     }
     .logo_wrapper{
         height: 27%;
+    }
+    .logo_wrapper_lp{
+        height: 40%;
     }
 }
 
@@ -841,6 +858,9 @@
         background-size: cover;
         background-repeat: no-repeat;
     
+    }
+    .logo_wrapper_lp{
+        height: 35%;
     }
 }
 
@@ -1050,7 +1070,7 @@
     }
 
     .lp_lower_part {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 20px;
     }
@@ -1084,7 +1104,7 @@
     } */
 
     .lp_lower_part {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 20px;
     }

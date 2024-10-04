@@ -11,7 +11,7 @@ import ChatHistoryMobile from "./ChatHistoryMobile";
 import logoImg from '../Assets/Images/IVTInsidePageLogoWhite.png'
 
 
-export default function Navbar({historyAddToChat}) {
+export default function Navbar() {
 
     const user_id = localStorage.getItem("user_id");
     
@@ -78,7 +78,7 @@ export default function Navbar({historyAddToChat}) {
       <SettingsPopup settingsNumber={settingsNumber} closeSettingsPop={setOpenSettingsPop} />
     </div>:null}
     {openSideHistory?<div>
-      <ChatHistoryMobile openSideHistoryMobile={openSideHistory} historyAddToChat={historyAddToChat} closeSideHistoryMobile={setOpenSideHistory}/>
+      <ChatHistoryMobile openSideHistoryMobile={openSideHistory} closeSideHistoryMobile={setOpenSideHistory}/>
     </div>:null}
    
    

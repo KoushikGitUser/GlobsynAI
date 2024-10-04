@@ -3,7 +3,7 @@ import anthropic from '../Assets/Images/Anthropic logo.png'
 import Histories from './Histories'
 import { IoArrowBackSharp } from 'react-icons/io5'
 
-export default function ChatHistoryMobile({addToChat,historyAddToChat,openSideHistoryMobile,closeSideHistoryMobile}) {
+export default function ChatHistoryMobile({closeSideHistoryMobile}) {
     const historyArray = [
         {
           history:"Write an essay on Democracy and what are its bad effects",
@@ -49,12 +49,12 @@ export default function ChatHistoryMobile({addToChat,historyAddToChat,openSideHi
        <div style={{color:"grey"}}>
         Today
        </div>
-       <Histories historyAddToChat={historyAddToChat} day='Today' historyArray={historyArray}/>
+       <Histories  day='Today' historyArray={historyArray}/>
     
        <div style={{color:"grey"}}>
         Yesterday
        </div>
-       <Histories historyAddToChat={historyAddToChat} day='Yesterday' historyArray={historyArray}/>
+       <Histories  day='Yesterday' historyArray={historyArray}/>
         </div>
     
         <div className='ai_part'>

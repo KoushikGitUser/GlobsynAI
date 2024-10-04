@@ -2,7 +2,7 @@ import React from 'react';
 import anthropic from '../Assets/Images/Anthropic logo.png'
 import Histories from './Histories';
 
-export default function ChatSideHistory({addToChat,historyAddToChat}) {
+export default function ChatSideHistory() {
 
   const historyArray = [
     {
@@ -42,12 +42,12 @@ export default function ChatSideHistory({addToChat,historyAddToChat}) {
    <div style={{color:"grey"}}>
     Today
    </div>
-   <Histories historyAddToChat={historyAddToChat} day='Today' historyArray={historyArray}/>
+   <Histories  day='Today' historyArray={historyArray}/>
 
    <div style={{color:"grey"}}>
     Yesterday
    </div>
-   <Histories historyAddToChat={historyAddToChat} day='Yesterday' historyArray={historyArray}/>
+   <Histories  day='Yesterday' historyArray={historyArray}/>
     </div>
 
     <div className='ai_part'>

@@ -94,7 +94,7 @@ export default function Signup() {
 
   return (
     <div className="signin_main">
-      <div style={{ height: "100px" }}></div>
+      <div style={{ height: "50px" }}></div>
       {/* <SignOptionsLogo /> */}
    <div className="logo_wrapper">
    <img style={{height:"100%"}} src={logoImg} alt="" />

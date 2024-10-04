@@ -12,9 +12,7 @@ import logoImg from '../Assets/Images/IVTVerticalLogoWhite.png';
 export default function LandingPage() {
   return (
     <div className='landing_page_main'>
-        <div style={{height:"25px"}}>
-
-        </div>
+       
         <div className='lp_main_wrapper'>
         <div className='lp_upper_part'>
             {/* <div className='globsyn_badge'>
@@ -31,7 +29,7 @@ export default function LandingPage() {
 
         </div>
 
-        <div className="logo_wrapper">
+        <div className="logo_wrapper_lp">
    <img style={{height:"100%"}} src={logoImg} alt="" />
    </div>
 

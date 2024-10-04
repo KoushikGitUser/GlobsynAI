@@ -11,7 +11,6 @@ import chatAiLogo from "../Assets/Images/cropped-Globsyn-Business-School-Favicon
 import { historiesToInput } from "../Redux/Slices/GetSlices";
 
 export default function ChatScreen() {
-  const dispatch = useDispatch();
 
   //All variables from redux
   const chatHistoryInput = useSelector(
@@ -67,11 +66,6 @@ export default function ChatScreen() {
     }
   };
 
-  //clicking on history, it will set to input
-  const historyAddToChat = (payload) => {
-    dispatch(historiesToInput(payload));
-  };
-
   //On pressing enter button triggers function
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -100,11 +94,11 @@ export default function ChatScreen() {
   return (
     <div className="chat_wrapper">
       <div className="navbar_wrapper_chat">
-        <Navbar historyAddToChat={historyAddToChat} />
+        <Navbar />
       </div>
 
       <div className="chat_main">
-        <ChatSideHistory historyAddToChat={historyAddToChat} />
+        <ChatSideHistory />
         
         <div className="chat_area_main">
           <div
