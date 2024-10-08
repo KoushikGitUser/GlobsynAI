@@ -37,6 +37,7 @@ export default function SignIn() {
     if (validation()) {
       setEmailError("");
       localStorage.setItem("user_id", 2);
+      localStorage.setItem("darkModeStatus","false")
       navigate("/chat");
     }
   };

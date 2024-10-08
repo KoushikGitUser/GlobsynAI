@@ -21,7 +21,7 @@
     height: 70px;
     width: 70px;
     border-radius: 50px;
-    box-shadow: 1px 1px 10px 0px rgb(181, 181, 181);
+    box-shadow: 1px 1px 10px 0px #b5b5b5;
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;

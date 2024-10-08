@@ -16,6 +16,7 @@ export default function ChatScreen() {
   const chatHistoryInput = useSelector(
     (state) => state.Get?.chatHistoryInput || ""
   );
+  const {darkMode} = useSelector((state)=>state.Get);
 
   let suggestionsArr = [
     {
@@ -97,10 +98,10 @@ export default function ChatScreen() {
         <Navbar />
       </div>
 
-      <div className="chat_main">
+      <div style={{backgroundColor:darkMode?"#201747":"#fdf4fb"}} className="chat_main"> 
         <ChatSideHistory />
         
-        <div className="chat_area_main">
+        <div style={{backgroundColor:darkMode?"#201747":"#fdf4fb"}} className="chat_area_main">
           <div
             style={{
               flexDirection: isChatting ? "column" : "row",
@@ -135,7 +136,7 @@ export default function ChatScreen() {
                         }}
                         alt=""
                       />
-                      <div key={index} style={{}} className="chat_text">
+                      <div key={index} style={{backgroundColor:darkMode?"#6351b0":"white",color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #d1d3fe"}} className="chat_text">
                         {items?.text?.length > 0 ? items?.text : null}
                       </div>
                     </div>
@@ -146,7 +147,7 @@ export default function ChatScreen() {
           </div>
 
           <div className="chat_lower_part">
-            <div className="chat_input_section">
+            <div  style={{backgroundColor:darkMode?"#201747":"#fdf4fb"}} className="chat_input_section">
               <div className="chat_input_section_inner">
                 <div>
                   <FiSun size={28} color="#6f49b9" />

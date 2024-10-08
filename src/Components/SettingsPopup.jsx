@@ -8,15 +8,17 @@ import Appearance from "./Settings/Appearance";
 import Preferences from "./Settings/Preferences";
 import Premium from "./Settings/Premium";
 import Profile from "./Settings/Profile";
+import { useSelector } from "react-redux";
 
 export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
+  
+  const {darkMode} = useSelector((state)=>state.Get);
   const [settingPage, setSettingsPage] = useState(settingsNumber);
   let settingsComponentsArray = [
     <General />,
     <Appearance />,
     <Preferences />,
     <Profile />,
-    <Premium />,
   ];
 
   const profileRef = useRef(null);
@@ -26,7 +28,26 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
       profileRef.current.scrollIntoView({behavior: "smooth"});
     }
 
-  },[])
+  },[]);
+
+  const setDarkOptions =(index)=>{
+    if(settingPage === index){
+      if(darkMode){
+        return "settings_options_active_dark"
+      }
+      else{
+        return "settings_options_active"
+      }
+    }
+    else{
+      if(darkMode){
+        return "settings_options_dark"
+      }
+      else{
+        return "settings_options"
+      }
+    }
+  }
 
   return (
     <>
@@ -35,25 +56,21 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
       className="settings_pop_main_wrapper"
     >
        </div>
-      <div className="settings_pop_main">
-        <div className="settings_pop_upper">
+      <div className={darkMode?"settings_pop_main_dark":"settings_pop_main"}>
+        <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}} className="settings_pop_upper">
           Settings
           <RxCross1
             style={{ cursor: "pointer" }}
             onClick={() => closeSettingsPop(false)}
             size={20}
-            color="black"
+            color={darkMode?"white":"black"}
           />
         </div>
         <div className="settings_content_main">
-          <div className="settings_pop_sidebar">
+          <div style={{borderRight:darkMode?"1px solid #696969":"1px solid lightgrey"}} className="settings_pop_sidebar">
             <div
               onClick={() => setSettingsPage(0)}
-              className={
-                settingPage == 0
-                  ? "settings_options_active"
-                  : "settings_options"
-              }
+              className={setDarkOptions(0)}
             >
               {" "}
               <LuSettings size={18} />
@@ -61,22 +78,14 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
             </div>
             <div
               onClick={() => setSettingsPage(1)}
-              className={
-                settingPage == 1
-                  ? "settings_options_active"
-                  : "settings_options"
-              }
+              className={setDarkOptions(1)}
             >
               <MdOutlineColorLens size={18} />
               Appearnce
             </div>
             <div
               onClick={() => setSettingsPage(2)}
-              className={
-                settingPage == 2
-                  ? "settings_options_active"
-                  : "settings_options"
-              }
+              className={setDarkOptions(2)}
             >
               <MdOutlineToggleOn size={18} />
               Preferences
@@ -84,16 +93,12 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
             <div
             ref={profileRef}
               onClick={() => setSettingsPage(3)}
-              className={
-                settingPage == 3
-                  ? "settings_options_active"
-                  : "settings_options"
-              }
+              className={setDarkOptions(3)}
             >
               <RiUserSettingsLine size={19} />
               Profile
             </div>
-            <div
+            {/* <div
               onClick={() => setSettingsPage(4)}
               className={
                 settingPage == 4
@@ -103,7 +108,7 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
             >
               <LuCrown size={17} />
               Premuim
-            </div>
+            </div> */}
           </div>
           <div className="settings_view_main">
             {settingsComponentsArray[settingPage]}

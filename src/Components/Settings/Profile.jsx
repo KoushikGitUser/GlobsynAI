@@ -3,8 +3,10 @@ import style from "./profileStyle.css";
 import { LiaEditSolid } from "react-icons/lia";
 import { MdOutlineEdit } from "react-icons/md";
 import profileImg from '../../Assets/Images/userImage2.jpg'
+import { useSelector } from "react-redux";
 
 export default function Profile() {
+  const {darkMode} = useSelector((state)=>state.Get);
   const [profileImage, setProfileImage] = useState(profileImg);
 
   const triggerFileInput = () => {
@@ -20,7 +22,7 @@ export default function Profile() {
   };
   return (
     <div className="profile_main_wrapper">
-      <div className="profile_photo">
+      <div style={{boxShadow:darkMode?"1px 1px 10px 0px black":"1px 1px 10px 0px #b5b5b5"}} className="profile_photo">
         <img style={{height:"70px",width:"70px",borderRadius:"50px"}} src={profileImage} alt="" />
         <div onClick={triggerFileInput} className="profile_photo_edit_icon">
           <MdOutlineEdit color="white" size={20} />
@@ -33,15 +35,15 @@ export default function Profile() {
           />
         </div>
       </div>
-      <div className="pro_settings_options ">
+      <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="pro_settings_options ">
         Koushik Chakraborty
-        <div className="manage_button">Edit</div>
+        <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="manage_button">Edit</div>
       </div>
-      <div className="pro_settings_options ">Change Password</div>
-      <div className="pro_settings_options ">
+      <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="pro_settings_options ">Change Password</div>
+      {/* <div className="pro_settings_options ">
         Delete account
         <div className="manage_button delete">Delete</div>
-      </div>
+      </div> */}
     </div>
   );
 }

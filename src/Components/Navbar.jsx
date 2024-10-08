@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-     <div style={{background:colorConfigs.navbar_bg}} className="nav_main">
+     <div className="nav_main">
       <div className="nav_inner">
         <div className="logo_and_menu">
             <div className="logo">
