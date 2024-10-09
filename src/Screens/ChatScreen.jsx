@@ -67,6 +67,17 @@ export default function ChatScreen() {
     }
   };
 
+  const sendChatAssistant = () => {
+    if (chatInput.trim().length > 0) {
+      setChatInput("");
+      setIsChatting(true);
+      const message = {type:"assistant",text:chatInput}
+      setMessages([...messages, message]);
+      //message to be sent -> chatInput
+      //Api call(chatInput)
+    }
+  };
+
   //On pressing enter button triggers function
   const onKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -159,7 +170,9 @@ export default function ChatScreen() {
                   setValue={handleChange}
                 />
                 
-                 
+                 {/* <button onClick={sendChatAssistant}>
+                  send as assistant
+                 </button> */}
                
               </div>
             </div>

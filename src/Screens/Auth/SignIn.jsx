@@ -33,11 +33,13 @@ export default function SignIn() {
     setEmail(e.target.value);
   };
 
+  const darkStatus = localStorage.getItem("darkModeStatus")
+
   const handleSignIn = () => {
     if (validation()) {
       setEmailError("");
       localStorage.setItem("user_id", 2);
-      localStorage.setItem("darkModeStatus","false")
+      localStorage.setItem("darkModeStatus",darkStatus)
       navigate("/chat");
     }
   };
