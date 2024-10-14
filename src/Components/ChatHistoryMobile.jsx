@@ -2,8 +2,13 @@ import React from 'react'
 import anthropic from '../Assets/Images/Anthropic logo.png'
 import Histories from './Histories'
 import { IoArrowBackSharp } from 'react-icons/io5'
+import { useSelector } from 'react-redux';
 
 export default function ChatHistoryMobile({closeSideHistoryMobile}) {
+
+  const {darkMode} = useSelector((state)=>state.Get);
+
+
     const historyArray = [
         {
           history:"Write an essay on Democracy and what are its bad effects",
@@ -33,17 +38,17 @@ export default function ChatHistoryMobile({closeSideHistoryMobile}) {
     
       return (
         <>
-               <div onClick={()=>closeSideHistoryMobile(false)} className='chat_history_main_wrapper_mobile'>
+               <div style={{backgroundColor:darkMode?"#00000000":"#0000004b"}} onClick={()=>closeSideHistoryMobile(false)} className='chat_history_main_wrapper_mobile'>
                 </div>
-    <div className='chat_history_wrapper_mobile'>
-          <div className='side_history_top_blank_nav'>
+    <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black",boxShadow:darkMode?"5px 0px 5px 0px #24164300":"5px 0px 5px 0px #00000000"}} className='chat_history_wrapper_mobile'>
+          <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}}  className='side_history_top_blank_nav'>
             <div onClick={()=>closeSideHistoryMobile(false)} className='close_side_history_mobile_icon'> 
             <IoArrowBackSharp color='#9578ff' size={22} />
             </div>
          
     
           </div>
-          <div className='chat_history'>
+          <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='chat_history'>
           <h3 style={{paddingLeft:"5%"}}>Chat History</h3>
         <div className='chat_history_middle'> 
        <div style={{color:"grey"}}>

@@ -7,7 +7,7 @@ export const GetSlice = createSlice({
   name: "GetSlice",
   initialState: {
     chatHistoryInput: "",
-    darkMode:darkStatus,
+    darkMode:darkStatus === "true"?true:false,
   },
   reducers: {
     historiesToInput: (state, action) => {

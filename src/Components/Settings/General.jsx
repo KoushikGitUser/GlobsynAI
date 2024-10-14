@@ -21,13 +21,13 @@ export default function General() {
         </div> */}
         <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='gen_settings_options '>
        Archived chats
-         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='manage_button'>
+         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className={darkMode?'manage_button_dark':'manage_button'}>
             Manage
          </div>
         </div>
         <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='gen_settings_options '>
          Archive all chats
-         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='manage_button'>
+         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className={darkMode?'manage_button_dark':'manage_button'}>
             Archive all
          </div>
         </div>

@@ -9,6 +9,7 @@ import { GoInfo } from "react-icons/go";
 import SettingsPopup from "./SettingsPopup";
 import ChatHistoryMobile from "./ChatHistoryMobile";
 import logoImg from '../Assets/Images/IVTInsidePageLogoWhite.png'
+import NotificationsPop from "./NotificationsPop";
 
 
 export default function Navbar() {
@@ -18,6 +19,7 @@ export default function Navbar() {
     //All states
     const [clickMenu,setClickMenu] = useState(false);
     const [clickProfile,setClickProfile] = useState(false);
+    const [clickNotify,setClickNotify] = useState(false);
     const [openSideHistory,setOpenSideHistory] = useState(false);
     const [openSettingsPop,setOpenSettingsPop] = useState(false);
     const [settingsNumber,setSettingsNumber] = useState(0);
@@ -39,13 +41,18 @@ export default function Navbar() {
             <div className="menu_button_mobile" onClick={()=>{
                 setOpenSideHistory(!openSideHistory)
                 setClickProfile(false);
+                setClickNotify(false)
             }}> 
                 {clickMenu?<BiDotsVertical size={25} color="white" />:<TiThMenu size={25} color="white" />}
             </div>
         </div>
         <div  className="nav_options">
             <div className="notify_bell">
-            <FaRegBell size={20} color={colorConfigs.nav_options} />
+            <FaRegBell onClick={()=>{
+              setClickNotify(!clickNotify);
+              setClickMenu(false);
+              setClickProfile(false);
+            }} size={20} color={colorConfigs.nav_options} />
             <div className="bell_dot">
 
             </div>
@@ -56,7 +63,8 @@ export default function Navbar() {
             {
                 user_id !=="" && user_id !== null && user_id !== undefined?<div onClick={()=>{
                     setClickProfile(!clickProfile);
-                    setClickMenu(false)
+                    setClickMenu(false);
+                    setClickNotify(false)
                 }}>
                   <div className={clickProfile?"active_profile":""}>
                   <PiUserCircleFill  size={25} color={colorConfigs.nav_options}/>
@@ -74,6 +82,7 @@ export default function Navbar() {
     {clickProfile?<div style={{position:"relative"}}>
      <ProfileOrMenuItems setSettingsNumber={setSettingsNumber} setOpenSettingsPop={setOpenSettingsPop} close={setClickProfile} type='Profile' />
     </div>:null}
+    {clickNotify?<NotificationsPop close={setClickNotify}/>:null}
     {openSettingsPop?<div >
       <SettingsPopup settingsNumber={settingsNumber} closeSettingsPop={setOpenSettingsPop} />
     </div>:null}

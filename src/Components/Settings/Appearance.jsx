@@ -22,14 +22,14 @@ export default function Appearance() {
         </div>
         <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}} className='appe_settings_options '>
          Chats Appearance
-         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='manage_button'>
+         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className={darkMode?'manage_button_dark':'manage_button'}>
             Customise
          </div>
          
         </div>
         <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='appe_settings_options '>
         Background Color
-         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='manage_button'>
+         <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}} className={darkMode?'manage_button_dark':'manage_button'}>
             Customise
          </div>
          

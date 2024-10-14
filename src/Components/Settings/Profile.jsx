@@ -37,7 +37,7 @@ export default function Profile() {
       </div>
       <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="pro_settings_options ">
         Koushik Chakraborty
-        <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="manage_button">Edit</div>
+        <div style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className={darkMode?'manage_button_dark':'manage_button'}>Edit</div>
       </div>
       <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="pro_settings_options ">Change Password</div>
       {/* <div className="pro_settings_options ">

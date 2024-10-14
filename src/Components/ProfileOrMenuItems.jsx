@@ -14,8 +14,9 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop,setSet
   const {darkMode} = useSelector((state)=>state.Get);
 
   const logOut =()=>{
-    localStorage.removeItem("user_id");
+    localStorage.clear();
     navigate("/signin");
+    window.location.reload()
   }
 
   const setMenuOptToDark=()=>{

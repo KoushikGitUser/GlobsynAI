@@ -17,7 +17,7 @@
     align-items: center;
 }
 .manage_button{
-    padding: 10px;
+    padding: 10px 25px;
     border: 1px solid rgb(205, 205, 205) ;
     border-radius: 50px;
     display: flex;
@@ -25,4 +25,23 @@
     align-items: center;
     cursor: pointer;
     font-weight: 500;
+}
+.manage_button_dark{
+    padding: 10px 25px;
+    border: 1px solid rgb(205, 205, 205) ;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+.manage_button:hover{
+    background-color: #f9ebff;
+    color: #572aba;
+    border-color: white;
+}
+.manage_button_dark:hover{
+    background-color: #483f57;
+    color: white;
 }

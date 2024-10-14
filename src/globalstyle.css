@@ -1,5 +1,5 @@
 .experiment {
-    color: #c8c8c8;
+    color: #0000004b;
 }
 
 @font-face {
@@ -83,6 +83,47 @@
     position: fixed;
     margin-left: 19%;
     margin-top: 5px;
+}
+.notification_popup{
+    width: 250px;
+    height: 50%;
+    background: white;
+    box-shadow: 5px 5px 5px 0px #dfcdf3;
+    border-radius: 7px;
+    border: 1px solid #b381cd;
+    position: fixed;
+    top: 55px;
+}
+.notification_holder_main{
+    width: 95%;
+    height: 80%;
+    margin: auto;
+    margin-top: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.notify_text_icon_wrapper{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+.notify_data{
+    width: 95%;
+    height: auto;
+    padding: 10px;
+    margin: auto;
+}
+.notify_text{
+    font-size: 18px;
+    font-weight: 700;
+}
+.notify_desc{
+    color: rgb(152, 152, 152);
+    font-size: 13px;
+    padding-left: 40px;
 }
 
 .testing {
@@ -613,7 +654,7 @@
     width: 90%;
     gap: 10px;
     padding: 5px 5px;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
 }
 .settings_options_dark{
@@ -623,7 +664,7 @@
     width: 90%;
     gap: 10px;
     padding: 5px 5px;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
 }
 .settings_view_main{
@@ -650,7 +691,7 @@
     width: 90%;
     gap: 10px;
     padding: 5px 5px;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     background-color: #f9ebff;
     color: #572aba;
@@ -662,7 +703,7 @@
     width: 90%;
     gap: 10px;
     padding: 5px 5px;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     background-color: #6a5f83;
     color: #faf8ff;
@@ -730,6 +771,9 @@
     .logo_wrapper_lp{
         height: 45%;
     }
+    .notification_popup{
+        right: 150px;
+    }
 }
 
 @media (min-width:1500px) and (max-width:1700px) {
@@ -771,6 +815,9 @@
     .logo_wrapper_lp{
         height: 45%;
     }
+    .notification_popup{
+        right: 150px;
+    }
     
 }
 
@@ -804,6 +851,9 @@
     }
     .logo_wrapper_lp{
         height: 45%;
+    }
+    .notification_popup{
+        right: 120px;
     }
 }
 
@@ -861,6 +911,9 @@
     .logo_wrapper_lp{
         height: 40%;
     }
+    .notification_popup{
+        right: 150px;
+    }
 }
 
 @media (max-width:1100px){
@@ -892,6 +945,9 @@
 }
 .logo_wrapper{
     height: 25%;
+}
+.notification_popup{
+    right: 120px;
 }
 }
 
@@ -1157,6 +1213,9 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+    .notification_popup{
+        right: 90px;
+    }
 }
 
 @media (max-width:500px) {
@@ -1193,6 +1252,9 @@
         background-image: url("./Assets/Images/slimPhoneBG.jpg");
         background-size: cover;
         background-repeat: no-repeat;
+    }
+    .notification_popup{
+        right: 90px;
     }
 
 }
