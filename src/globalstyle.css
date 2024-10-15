@@ -640,12 +640,28 @@
 .settings_pop_sidebar{
     width: 30%;
     height: 90%;
-    border-right: 1px solid lightgray;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
     padding-top: 20px;
+}
+.settings_pop_sidebar_desktop{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 20px;
+}
+.settings_sidebar_wrapper{
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    display: none;
+
 }
 .settings_options{
     display: flex;
@@ -1171,23 +1187,31 @@
     }
     .settings_content_main{
         flex-direction: column;
+        
     }
     .settings_pop_sidebar{
         flex-direction: row;
-        width: 90%;
-        height: 10%;
+        width: 80%;
+        height: 100%;
         padding-top: 5px;
         overflow: hidden;
         overflow-x: scroll;
         scroll-behavior: smooth;
         scrollbar-width: none;
-        border-right: none;
+  
+    }
+    .settings_pop_sidebar_desktop{
+        display: none;
     }
     .settings_pop_sidebar_wrapper{
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 10px;
 
+    }
+    .settings_sidebar_wrapper{
+        display: flex;
     }
     .settings_view_main{
         width: 95%;

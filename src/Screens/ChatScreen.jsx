@@ -8,6 +8,7 @@ import ChatInput from "../Components/ChatInput";
 import SuggestionsBox from "../Components/SuggestionsBox";
 import { useDispatch, useSelector } from "react-redux";
 import chatAiLogo from "../Assets/Images/cropped-Globsyn-Business-School-Favicon.png";
+import chatAiLogoWhite from '../Assets/Images/Globsyn-Business-School-Logo-white.png';
 import { historiesToInput } from "../Redux/Slices/GetSlices";
 
 export default function ChatScreen() {
@@ -140,9 +141,9 @@ export default function ChatScreen() {
                       }}
                     >
                       <img
-                        src={chatAiLogo}
+                        src={darkMode?chatAiLogoWhite:chatAiLogo}
                         style={{
-                          height: "40px",
+                          height:darkMode?"15px":"40px",
                           display: items?.type === "user" ? "none" : "block",
                         }}
                         alt=""
