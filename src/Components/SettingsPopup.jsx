@@ -139,7 +139,7 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
           </div>
          
          </div>
-         <div style={{borderRight:darkMode?"1px solid #":"1px solid lightgrey"}}  className="settings_pop_sidebar_desktop">
+         <div style={{borderRight:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className="settings_pop_sidebar_desktop">
             <div
               onClick={() => setSettingsPage(0)}
               className={setDarkOptions(0)}
