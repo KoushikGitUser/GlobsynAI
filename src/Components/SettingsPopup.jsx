@@ -107,13 +107,13 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
               <MdOutlineColorLens size={18} />
               Appearnce
             </div>
-            <div
+            {/* <div
               onClick={() => setSettingsPage(2)}
               className={setDarkOptions(2)}
             >
               <MdOutlineToggleOn size={18} />
               Preferences
-            </div>
+            </div> */}
             <div
             ref={profileRef}
               onClick={() => setSettingsPage(3)}
@@ -155,13 +155,13 @@ export default function SettingsPopup({ closeSettingsPop,settingsNumber }) {
               <MdOutlineColorLens size={18} />
               Appearnce
             </div>
-            <div
+            {/* <div
               onClick={() => setSettingsPage(2)}
               className={setDarkOptions(2)}
             >
               <MdOutlineToggleOn size={18} />
               Preferences
-            </div>
+            </div> */}
             <div
           
               onClick={() => setSettingsPage(3)}

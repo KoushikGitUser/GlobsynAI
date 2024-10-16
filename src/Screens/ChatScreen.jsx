@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import chatAiLogo from "../Assets/Images/cropped-Globsyn-Business-School-Favicon.png";
 import chatAiLogoWhite from '../Assets/Images/Globsyn-Business-School-Logo-white.png';
 import { historiesToInput } from "../Redux/Slices/GetSlices";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import IdeasComponent from "../Components/IdeasComponent";
 
 export default function ChatScreen() {
 
@@ -37,6 +39,40 @@ export default function ChatScreen() {
     },
   ];
 
+  let ideasArray = [
+    {
+      idea:"Idea1"
+    },
+    {
+      idea:"Idea2"
+    },
+    {
+      idea:"Idea3"
+    },
+    {
+      idea:"Idea4"
+    },
+    {
+      idea:"Idea5"
+    },
+    {
+      idea:"Idea6"
+    },
+    {
+      idea:"Idea7"
+    },
+    {
+      idea:"Idea8"
+    },
+    {
+      idea:"Idea9"
+    },
+    {
+      idea:"Idea10"
+    },
+  
+  ]
+
   //All states
   const [messages, setMessages] = useState([
     {
@@ -50,6 +86,7 @@ export default function ChatScreen() {
   ]);
   const [chatInput, setChatInput] = useState("");
   const [isChatting, setIsChatting] = useState(false);
+  const [openIdeas,setOpenIdeas] = useState(false);
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -164,8 +201,9 @@ export default function ChatScreen() {
           <div className="chat_lower_part">
             <div  style={{backgroundColor:chatBgColor}} className="chat_input_section">
               <div className="chat_input_section_inner">
-                <div>
-                  <FiSun size={28} color="#6f49b9" />
+                {openIdeas?<IdeasComponent ideasArray={ideasArray}/>:null}
+                <div onClick={()=>setOpenIdeas(!openIdeas)}>
+                  <HiOutlineLightBulb  size={35} color="#6f49b9" />
                 </div>
                 <ChatInput
                   onKeyDown={onKeyDown}

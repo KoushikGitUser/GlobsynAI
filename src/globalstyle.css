@@ -589,6 +589,63 @@
     gap: 10px;
     align-items: flex-end;
 }
+.idea_compo_main{
+    position: fixed;
+    top: 83%;
+    left: 27%;
+    height: 30px;
+    width: 40%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid #8e76b7;
+    /* box-shadow: 1px 1px 10px 0px #9298e2; */
+}
+.idea_compo_inner_main{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ideas_content_main{
+   height: 100%;
+   width: 90%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 20px;
+   padding: 10px;
+   overflow: hidden;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+   scrollbar-width: none;
+
+}
+.idea_content{
+    width: fit-content;
+    padding: 5px 20px;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: 1px solid #8e76b7;
+    cursor: pointer;
+}
+.idea_arrow{
+    position: absolute;
+    top: 120%;
+    left: 13.5%;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-right: 1px solid #8e76b7;
+    border-bottom: 1px solid #8e76b7;
+    /* box-shadow: 5px 10px 15px 0px #9298e2; */
+    transform: rotate(45deg);
+}
 .settings_pop_main_wrapper{
     position: fixed;
     width: 100%;
@@ -871,6 +928,9 @@
     .notification_popup{
         right: 120px;
     }
+    .idea_arrow{
+        left: 15.5%;
+    }
 }
 
 @media (max-width:1300px) {
@@ -930,6 +990,9 @@
     .notification_popup{
         right: 150px;
     }
+    .idea_arrow{
+        left: 20.5%;
+    }
 }
 
 @media (max-width:1100px){
@@ -965,6 +1028,10 @@
 .notification_popup{
     right: 120px;
 }
+.idea_arrow{
+    left: 13%;
+}
+
 }
 
 @media (max-width:1000px) {
@@ -1095,6 +1162,12 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+    .idea_arrow{
+        left: 9.5%;
+    }
+    .idea_compo_main{
+        left: 30%;
+    }
 
   
 }
@@ -1146,6 +1219,12 @@
         background-image: url("./Assets/Images/ipadBG.jpg");
         background-size: cover;
         background-repeat: no-repeat;
+    }
+    .idea_arrow{
+        left: 7%;
+    }
+    .idea_compo_main{
+        left: 32%;
     }
 }
 @media(max-width:600px){
@@ -1240,6 +1319,13 @@
     .notification_popup{
         right: 90px;
     }
+    .idea_compo_main{
+        left: 2%;
+        width: 90%;
+    }
+    .idea_arrow{
+        left: 3%;
+    }
 }
 
 @media (max-width:500px) {
@@ -1279,6 +1365,9 @@
     }
     .notification_popup{
         right: 90px;
+    }
+    .idea_compo_main{
+        top: 80%;
     }
 
 }
