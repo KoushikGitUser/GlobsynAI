@@ -5,7 +5,7 @@ export default function GoToSignInSignUp({type,path}) {
   const navigate = useNavigate();
 
   return (
-    <div style={{ color: "white", fontSize: "18px", marginTop:type==="Signin"?"50px":"10px" }}>
+    <div style={{ color: "white", fontSize: "16px", marginTop:type==="Signin"?"50px":"10px" }}>
     {type === "Signin"?"Don't have an account?":"Already have an account?"} {" "}
     <span
       onClick={() => navigate(path)}

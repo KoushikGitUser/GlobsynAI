@@ -87,6 +87,7 @@ export default function ChatScreen() {
   const [chatInput, setChatInput] = useState("");
   const [isChatting, setIsChatting] = useState(false);
   const [openIdeas,setOpenIdeas] = useState(false);
+  const [toggleChatHistory,setToggleChatHistory] = useState(true);
 
   const handleChange = (e) => {
     let inputValue = e.target.value;
@@ -147,11 +148,12 @@ export default function ChatScreen() {
   return (
     <div className="chat_wrapper">
       <div className="navbar_wrapper_chat">
-        <Navbar />
+        <Navbar setToggleChatHistory={setToggleChatHistory}  toggleChatHistory={toggleChatHistory}/>
       </div>
 
       <div style={{backgroundColor:chatBgColor}} className="chat_main"> 
-        <ChatSideHistory />
+         {toggleChatHistory?<ChatSideHistory />:null}
+        
         
         <div style={{backgroundColor:chatBgColor}} className="chat_area_main">
           <div
@@ -201,8 +203,8 @@ export default function ChatScreen() {
           <div className="chat_lower_part">
             <div  style={{backgroundColor:chatBgColor}} className="chat_input_section">
               <div className="chat_input_section_inner">
-                {openIdeas?<IdeasComponent ideasArray={ideasArray}/>:null}
-                <div onClick={()=>setOpenIdeas(!openIdeas)}>
+                {openIdeas?<IdeasComponent toggleChatHistory={toggleChatHistory} ideasArray={ideasArray}/>:null}
+                <div className={openIdeas?"bulb_icon":""} onClick={()=>setOpenIdeas(!openIdeas)}>
                   <HiOutlineLightBulb  size={35} color="#6f49b9" />
                 </div>
                 <ChatInput

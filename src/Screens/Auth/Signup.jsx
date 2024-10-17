@@ -97,7 +97,7 @@ export default function Signup() {
       <div style={{ height: "50px" }}></div>
       {/* <SignOptionsLogo /> */}
    <div className="logo_wrapper">
-   <img style={{height:"100%"}} src={logoImg} alt="" />
+   <img style={{height:"88%"}} src={logoImg} alt="" />
    </div>
 
 
@@ -130,7 +130,7 @@ export default function Signup() {
         <Inputs
           value={formData.email}
           setValue={handleChange}
-          placeholder="Email id"
+          placeholder="Email address"
           width="38%"
           type="email"
           name="email"
@@ -148,7 +148,7 @@ export default function Signup() {
         <Inputs
           value={formData.mobile}
           setValue={handleChange}
-          placeholder="Mobile no"
+          placeholder="Mobile number"
           width="38%"
           type="text"
           name="mobile"
@@ -170,7 +170,7 @@ export default function Signup() {
           width="40.5%"
           bgColor={colorConfigs.buttonColor}
           textSize="19px"
-          textColor="#474747"
+          textColor="#301f80"
           text="Sign up"
         />
    <GoToSignInSignUp type='Signup' path='/signin' />

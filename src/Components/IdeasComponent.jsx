@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
-export default function IdeasComponent({ideasArray}) {
+export default function IdeasComponent({ideasArray,toggleChatHistory}) {
 
     const lastElementRef = useRef(null);
     const firstElementRef = useRef(null);
@@ -15,7 +15,7 @@ export default function IdeasComponent({ideasArray}) {
         firstElementRef.current.scrollIntoView({behavior: "smooth"});
     }
   return (
-    <div className='idea_compo_main'>
+    <div className={toggleChatHistory?'idea_compo_main':'idea_compo_main_when_collapsed'}>
         <div className='idea_compo_inner_main'>
             <div className='idea_arrow'>
 

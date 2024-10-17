@@ -10,10 +10,19 @@ export const GetSlice = createSlice({
     darkMode:darkStatus === "true"?true:false,
     chatColor:darkStatus === "true"?"#6351b0":"white",
     chatBgColor:darkStatus === "true"? "#201747":"#fdf4fb",
+    suggestions :[
+      "Entrepreneurship and Innovation",
+      "Operations Management Techniques",
+      "Consumer Behavior Analysis",
+      "Globalization in Business Strategy"
+    ],
   },
   reducers: {
     historiesToInput: (state, action) => {
       state.chatHistoryInput = action.payload;
+    },
+    changeSuggestsAsPerSelectedIdeas :(state,{payload})=>{
+       state.suggestions = [payload.opt1,payload.opt2,payload.opt3,payload.opt4,]
     },
     darkModeToggle : (state,action)=>{
       const darkStatus = localStorage.getItem("darkModeStatus");
@@ -40,5 +49,5 @@ export const GetSlice = createSlice({
   extraReducers: (builders) => {},
 });
 
-export const { historiesToInput,darkModeToggle,changeBgColor,changeChatColor } = GetSlice.actions;
+export const { historiesToInput,darkModeToggle,changeBgColor,changeChatColor,changeSuggestsAsPerSelectedIdeas } = GetSlice.actions;
 export default GetSlice;

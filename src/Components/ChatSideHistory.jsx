@@ -3,45 +3,34 @@ import anthropic from '../Assets/Images/Anthropic logo.png'
 import anthropicWhite from '../Assets/Images/Anthropic logo_white.png';
 import Histories from './Histories';
 import { useSelector } from 'react-redux';
+import { historyArray } from '../config';
+import ChatHistoryIdeas from './ChatHistoryIdeas';
+import { IoIosArrowDown } from 'react-icons/io';
+import { FiEdit } from 'react-icons/fi';
 
 export default function ChatSideHistory() {
 
   const {darkMode} = useSelector((state)=>state.Get);
-  const historyArray = [
-    {
-      history:"Write an essay on Democracy and what are its bad effects",
-      day:"Today"
-    },
-    {
-      history:"Write an essay on Democracy and what are its bad effects",
-      day:"Today"
-    },
-    {
-      history:"Write an essay on Democracy and what are its bad effects",
-      day:"Today"
-    },
-    {
-      history:"How to add comments on facebook",
-      day:"Yesterday"
-    },
-    {
-      history:"How to add comments on facebook",
-      day:"Yesterday"
-    },
-    {
-      history:"How to add comments on facebook",
-      day:"Yesterday"
-    }
-  ]
+ 
 
   return (
     <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black",boxShadow:darkMode?"5px 0px 5px 0px #24164300":"5px 0px 5px 0px #d7ccfd"}} className='chat_history_wrapper'>
-      <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='side_history_top_blank_nav'>
+      {/* <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='side_history_top_blank_nav'>
 
+      </div> */}
+      <div className='new_chat_button'>
+      <FiEdit size={16} color="black" />
+          New Chat
       </div>
+      
       <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='chat_history'>
-      <h3 style={{paddingLeft:"5%"}}>Chat History</h3>
+        <div className='chat_history_ideas_wrapper'>
+        <h3 style={{paddingLeft:"5%",fontSize:"17px"}}>Start Learning...</h3>
     <div className='chat_history_middle'> 
+    <ChatHistoryIdeas/>
+    </div>
+        <h3 style={{paddingLeft:"5%",fontSize:"17px"}}>Chat History</h3>
+    <div className='chat_history_middle_below'> 
    <div style={{color:"grey"}}>
     Today
    </div>
@@ -52,6 +41,7 @@ export default function ChatSideHistory() {
    </div>
    <Histories  day='Yesterday' historyArray={historyArray}/>
     </div>
+        </div>
 
     <div className='ai_part'>
           <div style={{color:darkMode?"white":"black",fontSize:"15px",fontWeight:"600"}}>Powered by</div>

@@ -4,6 +4,7 @@ import { IoIosInformationCircleOutline, IoMdStarOutline } from 'react-icons/io'
 import { IoPower } from 'react-icons/io5'
 import { LiaUserEditSolid } from 'react-icons/lia'
 import { LuSettings } from 'react-icons/lu'
+import { RxCross1 } from 'react-icons/rx'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -35,7 +36,7 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop,setSet
   return (
     <div style={{backgroundColor:darkMode?"#332b69":"white",color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #dfcdf3"}} className={type === "Menu" ? "menu_items_main":"profile_items_main"} >
       <div className='options_cross_section'>
-      <BiXCircle style={{cursor:"pointer"}} onClick={()=>close(false)} size={20} />
+      <RxCross1 style={{cursor:"pointer"}} onClick={()=>close(false)} size={20} />
 
       </div>
       <div className='options_below_main'>
@@ -59,7 +60,20 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop,setSet
          
           
         </div>
-        <div className= {setMenuOptToDark()}>
+        <div  onClick={()=>{
+            navigate("/about");
+        }} className={darkMode?'options_dark':'options'}>
+          <div className='options_inner'>
+          <IoIosInformationCircleOutline size={20} />
+       
+       <div>
+         About
+       </div>
+          </div>
+         
+          
+        </div>
+        {/* <div className= {setMenuOptToDark()}>
         <div onClick={()=> {
           if(type === "Menu"){
             navigate("/help")
@@ -77,7 +91,23 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop,setSet
        </div>
           </div>
 
+        </div> */}
+        <div className={darkMode?'options_dark':'options'}>
+        <div onClick={()=>{
+           setOpenSettingsPop(true);
+            close();
+            setSettingsNumber(0)
+          }
+        } className='options_inner'>
+       <LuSettings size={18} />
+       
+       <div >
+         Settings
+       </div>
+          </div>
+
         </div>
+
         <div className={darkMode?'options_dark':'options'}>
         <div onClick={()=>{
           if(type === "Menu"){

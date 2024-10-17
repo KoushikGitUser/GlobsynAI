@@ -30,7 +30,7 @@ export default function LandingPage() {
         </div>
 
         <div className="logo_wrapper_lp">
-   <img style={{height:"100%"}} src={logoImg} alt="" />
+   <img style={{height:"80%"}} src={logoImg} alt="" />
    </div>
 
       {/* <div className='lp_middle_part_main'>
@@ -47,10 +47,10 @@ export default function LandingPage() {
         </div>
         <div  className='lp_sign_options_main'>
             <Link style={{textDecoration:"none",color:"black"}} to='/signin'>
-            <Buttons className='lp_button_main'  bgColor='white' text='Sign in' onClick="" />
+            <Buttons className='lp_button_main' textColor="#301f80" bgColor='white' text='Sign in' onClick="" />
             </Link>
           <Link style={{textDecoration:"none",color:"black"}} to='signup' >
-          <Buttons className='lp_button_main' width='300px' bgColor={colorConfigs.buttonColor}  text='Sign up' onClick='' />
+          <Buttons className='lp_button_main' textColor="#301f80" width='300px' bgColor={colorConfigs.buttonColor}  text='Sign up' onClick='' />
           </Link>
           
             <div className='google_button'>

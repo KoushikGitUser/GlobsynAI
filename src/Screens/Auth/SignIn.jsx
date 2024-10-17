@@ -82,11 +82,11 @@ export default function SignIn() {
             className="button_main"
             bgColor={colorConfigs.buttonColor}
             textSize="19px"
-            textColor="#474747"
+           textColor="#301f80"
             text="Sign in"
           />
           <div
-            style={{ fontSize: "18px", fontWeight: "600" }}
+            style={{ fontSize: "16px", }}
             className="google_button"
           >
             Continue with Google{" "}
