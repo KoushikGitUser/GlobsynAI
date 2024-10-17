@@ -25,11 +25,11 @@ export default function ChatSideHistory() {
       
       <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='chat_history'>
         <div className='chat_history_ideas_wrapper'>
-        <h3 style={{paddingLeft:"5%",fontSize:"17px"}}>Start Learning...</h3>
+        <div style={{paddingLeft:"5%",fontSize:"17px",fontWeight:"700",marginTop:"20px",marginBottom:"20px"}}>Start Learning</div>
     <div className='chat_history_middle'> 
     <ChatHistoryIdeas/>
     </div>
-        <h3 style={{paddingLeft:"5%",fontSize:"17px"}}>Chat History</h3>
+        <div style={{paddingLeft:"5%",fontSize:"17px",fontWeight:"700",marginBottom:"20px"}}>Chat History</div>
     <div className='chat_history_middle_below'> 
    <div style={{color:"grey"}}>
     Today

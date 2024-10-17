@@ -12,6 +12,7 @@ import chatAiLogoWhite from '../Assets/Images/Globsyn-Business-School-Logo-white
 import { historiesToInput } from "../Redux/Slices/GetSlices";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import IdeasComponent from "../Components/IdeasComponent";
+import { TbBulbFilled } from "react-icons/tb";
 
 export default function ChatScreen() {
 
@@ -204,8 +205,9 @@ export default function ChatScreen() {
             <div  style={{backgroundColor:chatBgColor}} className="chat_input_section">
               <div className="chat_input_section_inner">
                 {openIdeas?<IdeasComponent toggleChatHistory={toggleChatHistory} ideasArray={ideasArray}/>:null}
-                <div className={openIdeas?"bulb_icon":""} onClick={()=>setOpenIdeas(!openIdeas)}>
-                  <HiOutlineLightBulb  size={35} color="#6f49b9" />
+                <div onClick={()=>setOpenIdeas(!openIdeas)}>
+                  {openIdeas?<TbBulbFilled size={35} color="#6f49b9" />:<HiOutlineLightBulb  size={35} color="#6f49b9" />}
+                 
                 </div>
                 <ChatInput
                   onKeyDown={onKeyDown}
