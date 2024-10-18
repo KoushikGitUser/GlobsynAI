@@ -95,9 +95,9 @@ export default function SignIn() {
         <GoToSignInSignUp path='/signup' type='Signin' />
         </div>
 
-        <div onClick={()=>navigate("/help")} className="sin_lower">
+        {/* <div onClick={()=>navigate("/help")} className="sin_lower">
           <div style={{ cursor: "pointer" }}>Need help?</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

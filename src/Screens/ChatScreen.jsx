@@ -13,6 +13,7 @@ import { historiesToInput } from "../Redux/Slices/GetSlices";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import IdeasComponent from "../Components/IdeasComponent";
 import { TbBulbFilled } from "react-icons/tb";
+import { GoHubot } from "react-icons/go";
 
 export default function ChatScreen() {
 
@@ -24,55 +25,6 @@ export default function ChatScreen() {
   const {chatColor} = useSelector((state)=>state.Get);
   const {chatBgColor} = useSelector((state)=>state.Get);
 
-
-  let suggestionsArr = [
-    {
-      suggest: "Web Developing",
-    },
-    {
-      suggest: "Digital Marketing",
-    },
-    {
-      suggest: "Mobile App Development",
-    },
-    {
-      suggest: "Social Networking",
-    },
-  ];
-
-  let ideasArray = [
-    {
-      idea:"Idea1"
-    },
-    {
-      idea:"Idea2"
-    },
-    {
-      idea:"Idea3"
-    },
-    {
-      idea:"Idea4"
-    },
-    {
-      idea:"Idea5"
-    },
-    {
-      idea:"Idea6"
-    },
-    {
-      idea:"Idea7"
-    },
-    {
-      idea:"Idea8"
-    },
-    {
-      idea:"Idea9"
-    },
-    {
-      idea:"Idea10"
-    },
-  
-  ]
 
   //All states
   const [messages, setMessages] = useState([
@@ -168,7 +120,7 @@ export default function ChatScreen() {
             <SuggestionsBox
               addToChat={addToChat}
               isChatting={isChatting}
-              suggestionArray={suggestionsArr}
+             
             />
             {messages.length > 2 &&
               messages.map((items, index) => {
@@ -183,14 +135,15 @@ export default function ChatScreen() {
                         gap: "10px",
                       }}
                     >
-                      <img
+                      {/* <img
                         src={darkMode?chatAiLogoWhite:chatAiLogo}
                         style={{
                           height:darkMode?"15px":"40px",
                           display: items?.type === "user" ? "none" : "block",
                         }}
                         alt=""
-                      />
+                      /> */}
+                      <GoHubot style={{ display: items?.type === "user" ? "none" : "block",}} size={20} color={darkMode?"white":"black"} />
                       <div key={index} style={{backgroundColor:chatColor,color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #d1d3fe"}} className="chat_text">
                         {items?.text?.length > 0 ? items?.text : null}
                       </div>
@@ -204,7 +157,7 @@ export default function ChatScreen() {
           <div className="chat_lower_part">
             <div  style={{backgroundColor:chatBgColor}} className="chat_input_section">
               <div className="chat_input_section_inner">
-                {openIdeas?<IdeasComponent toggleChatHistory={toggleChatHistory} ideasArray={ideasArray}/>:null}
+                {openIdeas?<IdeasComponent toggleChatHistory={toggleChatHistory}/>:null}
                 <div onClick={()=>setOpenIdeas(!openIdeas)}>
                   {openIdeas?<TbBulbFilled size={35} color="#6f49b9" />:<HiOutlineLightBulb  size={35} color="#6f49b9" />}
                  

@@ -37,7 +37,7 @@ export default function Navbar({setToggleChatHistory,toggleChatHistory}) {
                 setClickMenu(!clickMenu);
                 setClickProfile(false);
             }}> 
-                {clickMenu?<RiMenuFold4Line size={25} color="white" />:<RiMenuUnfold4Line2 size={25} color="white" />}
+                {clickMenu?<RiMenuFold4Line size={24} color="white" />:<RiMenuUnfold4Line2 size={24} color="white" />}
             </div>
             <div className="logo">
               <img style={{height:"32px"}} src={logoImg} alt="" />
@@ -48,7 +48,7 @@ export default function Navbar({setToggleChatHistory,toggleChatHistory}) {
                 setClickProfile(false);
                 setClickNotify(false)
             }}> 
-                {clickMenu?<BiDotsVertical size={25} color="white" />:<TiThMenu size={25} color="white" />}
+                {openSideHistory?<RiMenuFold4Line size={25} color="white" />:<RiMenuUnfold4Line2 size={25} color="white" />}
             </div>
         </div>
         <div  className="nav_options">
@@ -73,7 +73,7 @@ export default function Navbar({setToggleChatHistory,toggleChatHistory}) {
                     setClickNotify(false)
                 }}>
                   <div className={clickProfile?"active_profile":""}>
-                  <LuUser2  size={20} color={clickProfile?"orange":"white"} />
+                  <LuUser2 style={{marginTop:"1px"}}  size={20} color={clickProfile?"orange":"white"} />
                   </div>
              
                 </div>:<div style={{color:"#6450e8"}}></div>

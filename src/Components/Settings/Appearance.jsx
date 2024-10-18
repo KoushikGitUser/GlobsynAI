@@ -4,7 +4,6 @@ import style from './appearanceStyle.css';
 import { changeBgColor, changeChatColor, darkModeToggle } from '../../Redux/Slices/GetSlices';
 import { useDispatch, useSelector } from 'react-redux';
 import { SketchPicker } from "react-color";
-import { BiXCircle } from 'react-icons/bi';
 import { RxCross1 } from 'react-icons/rx';
 
 export default function Appearance() {

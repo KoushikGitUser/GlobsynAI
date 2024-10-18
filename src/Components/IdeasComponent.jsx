@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { ideasArray } from '../config';
 
-export default function IdeasComponent({ideasArray,toggleChatHistory}) {
+export default function IdeasComponent({toggleChatHistory}) {
 
     const lastElementRef = useRef(null);
     const firstElementRef = useRef(null);
@@ -21,7 +22,7 @@ export default function IdeasComponent({ideasArray,toggleChatHistory}) {
 
             </div>
             <div onClick={swipeToFirstElement} style={{cursor:"pointer"}}>
-            <IoIosArrowBack size={25}  />
+            <IoIosArrowBack size={20}  />
              </div>
             <div className='ideas_content_main'>
                 {ideasArray?.map((items,index)=>{
@@ -34,7 +35,7 @@ export default function IdeasComponent({ideasArray,toggleChatHistory}) {
               
             </div>
             <div onClick={swipeToLastElement} style={{cursor:"pointer"}}>
-            <IoIosArrowForward size={25} />
+            <IoIosArrowForward size={20} />
                  </div>
 
         </div>

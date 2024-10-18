@@ -62,3 +62,22 @@ export const historyArray = [
         opt4:"Persuasive Writing Techniques"
     }
   ]
+
+  export const ideasArray = [
+    {
+      idea:"What is the time value of money and why is it important in finance?"
+    },
+    {
+      idea:"What factors influence a company's capital structure?"
+    },
+    {
+      idea:"How does a company manage its cash flow effectively?"
+    },
+    {
+      idea:"How does working capital management impact a business’s liquidity?"
+    },
+    {
+      idea:"What are the key differences between equity financing and debt financing?"
+    },
+  
+  ]

@@ -15,42 +15,49 @@ export default function ChatSideHistory() {
 
   return (
     <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black",boxShadow:darkMode?"5px 0px 5px 0px #24164300":"5px 0px 5px 0px #d7ccfd"}} className='chat_history_wrapper'>
-      {/* <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='side_history_top_blank_nav'>
-
-      </div> */}
-      <div className='new_chat_button'>
-      <FiEdit size={16} color="black" />
+    
+    <div>
+    <div className='new_chat_button'>
+      <FiEdit size={14} color="black" />
           New Chat
       </div>
-      
+    
       <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black"}} className='chat_history'>
         <div className='chat_history_ideas_wrapper'>
-        <div style={{paddingLeft:"5%",fontSize:"17px",fontWeight:"700",marginTop:"20px",marginBottom:"20px"}}>Start Learning</div>
+        <div style={{paddingLeft:"5%",fontSize:"16px",fontWeight:"700",marginTop:"20px",marginBottom:"20px"}}>Start Learning</div>
     <div className='chat_history_middle'> 
     <ChatHistoryIdeas/>
     </div>
-        <div style={{paddingLeft:"5%",fontSize:"17px",fontWeight:"700",marginBottom:"20px"}}>Chat History</div>
+        <div style={{paddingLeft:"5%",fontSize:"16px",fontWeight:"700",marginBottom:"20px"}}>Chat History</div>
     <div className='chat_history_middle_below'> 
-   <div style={{color:"grey"}}>
+   <div style={{color:"grey",fontSize:"14px"}}>
     Today
    </div>
    <Histories  day='Today' historyArray={historyArray}/>
 
-   <div style={{color:"grey"}}>
-    Yesterday
+   <div style={{color:"grey",fontSize:"14px"}}>
+    Previous 7 days
+   </div>
+   <Histories  day='Yesterday' historyArray={historyArray}/>
+
+   <div style={{color:"grey",fontSize:"14px"}}>
+    Older
    </div>
    <Histories  day='Yesterday' historyArray={historyArray}/>
     </div>
         </div>
 
-    <div className='ai_part'>
-          <div style={{color:darkMode?"white":"black",fontSize:"15px",fontWeight:"600"}}>Powered by</div>
-          <div style={{color:"black",fontSize:"27px",fontWeight:"600",fontStyle:"italic",paddingTop:"10px",display:"flex",alignItems:"center",gap:"10px"}}>
+  
+      </div>
+    </div>
+     
+  
+      <div className='ai_part'>
+          <div style={{color:darkMode?"white":"black",fontSize:"14px",fontWeight:"600"}}>Powered by</div>
+          <div style={{color:"black",fontSize:"27px",fontWeight:"600",fontStyle:"italic",display:"flex",alignItems:"center",gap:"10px"}}>
             {darkMode? <img src={anthropicWhite} style={{height:"15px"}} alt="" />:<img src={anthropic} style={{height:"15px"}} alt="" />}
            </div>
       </div>
-      </div>
-   
 
   </div>
   )
