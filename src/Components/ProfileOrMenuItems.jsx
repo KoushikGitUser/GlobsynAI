@@ -34,7 +34,7 @@ export default function ProfileOrMenuItems({type,close,setOpenSettingsPop,setSet
     }
   }
   return (
-    <div style={{backgroundColor:darkMode?"#332b69":"white",color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #dfcdf3"}} className={type === "Menu" ? "menu_items_main":"profile_items_main"} >
+    <div style={{backgroundColor:darkMode?"#332b69":"white",color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #dfcdf3"}} className="profile_items_main" >
       <div className='options_cross_section'>
       <RxCross1 style={{cursor:"pointer"}} onClick={()=>close(false)} size={20} />
 

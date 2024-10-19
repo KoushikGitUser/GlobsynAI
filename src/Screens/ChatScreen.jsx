@@ -90,6 +90,20 @@ export default function ChatScreen() {
     //Api call(payload.text)
   };
 
+  const newChat =()=>{
+    setIsChatting(false);
+    setMessages([
+      {
+        type: "assistant",
+        text: "",
+      },
+      {
+        type: "user",
+        text: "",
+      },
+    ]);
+  }
+
   useEffect(() => {
     setChatInput(chatHistoryInput);
   }, [chatHistoryInput]);
@@ -101,11 +115,11 @@ export default function ChatScreen() {
   return (
     <div className="chat_wrapper">
       <div className="navbar_wrapper_chat">
-        <Navbar setToggleChatHistory={setToggleChatHistory}  toggleChatHistory={toggleChatHistory}/>
+        <Navbar newChat={newChat} setToggleChatHistory={setToggleChatHistory}  toggleChatHistory={toggleChatHistory}/>
       </div>
 
       <div style={{backgroundColor:chatBgColor}} className="chat_main"> 
-         {toggleChatHistory?<ChatSideHistory />:null}
+         {toggleChatHistory?<ChatSideHistory newChat={newChat} />:null}
         
         
         <div style={{backgroundColor:chatBgColor}} className="chat_area_main">

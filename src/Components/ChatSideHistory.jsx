@@ -8,7 +8,7 @@ import ChatHistoryIdeas from './ChatHistoryIdeas';
 import { IoIosArrowDown } from 'react-icons/io';
 import { FiEdit } from 'react-icons/fi';
 
-export default function ChatSideHistory() {
+export default function ChatSideHistory({newChat}) {
 
   const {darkMode} = useSelector((state)=>state.Get);
  
@@ -17,8 +17,8 @@ export default function ChatSideHistory() {
     <div style={{backgroundColor:darkMode?"#170c2f":"white",color:darkMode?"lightgrey":"black",boxShadow:darkMode?"5px 0px 5px 0px #24164300":"5px 0px 5px 0px #d7ccfd"}} className='chat_history_wrapper'>
     
     <div>
-    <div className='new_chat_button'>
-      <FiEdit size={14} color="black" />
+    <div onClick={()=> newChat()} className={darkMode?'new_chat_button_dark':'new_chat_button'}>
+      <FiEdit size={14} color={darkMode?"white":"black"} />
           New Chat
       </div>
     

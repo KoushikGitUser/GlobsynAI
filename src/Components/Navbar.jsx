@@ -15,7 +15,7 @@ import { LuUser2 } from "react-icons/lu";
 import { RiMenuFold4Line, RiMenuUnfold4Line2 } from "react-icons/ri";
 
 
-export default function Navbar({setToggleChatHistory,toggleChatHistory}) {
+export default function Navbar({setToggleChatHistory,toggleChatHistory,newChat}) {
 
     const user_id = localStorage.getItem("user_id");
     
@@ -52,7 +52,7 @@ export default function Navbar({setToggleChatHistory,toggleChatHistory}) {
             </div>
         </div>
         <div  className="nav_options">
-        <FiEdit size={20} color="white" />
+        <FiEdit onClick={()=>newChat()} size={20} color="white" />
             <div className="notify_bell">
             <FaRegBell onClick={()=>{
               setClickNotify(!clickNotify);
