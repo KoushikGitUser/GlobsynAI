@@ -16,7 +16,7 @@ export default function IdeasComponent({toggleChatHistory}) {
         firstElementRef.current.scrollIntoView({behavior: "smooth"});
     }
   return (
-    <div className={toggleChatHistory?'idea_compo_main':'idea_compo_main_when_collapsed'}>
+    <div className='idea_compo_main'>
         <div className='idea_compo_inner_main'>
             <div className='idea_arrow'>
 

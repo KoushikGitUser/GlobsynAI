@@ -450,19 +450,14 @@
 }
 
 .chat_history_middle{
-    height: 100px;
     width: 95%;
     margin: auto;
-    overflow: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
     margin-left: 5%;
     margin-bottom: 50px;
 
 }
 .chat_history_middle_below{
-    height: 150px;
+    height: 200px;
     width: 95%;
     margin: auto;
     overflow: hidden;
@@ -495,7 +490,7 @@
     margin-bottom: 30px;
 }
 .histories:hover{
-    background-color: rgb(60, 46, 100);
+    background-color: rgb(210, 194, 255);
 }
 .histories{
     white-space: nowrap;
@@ -529,13 +524,16 @@
     margin-left: 9%;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
     scrollbar-width: none;
     padding-right: 5px;
     padding-left: 5px;
     padding-bottom: 10px;
     padding-top: 10px;
     gap: 15px;
+}
+.chat_text_container{
+  max-width: 60%;
+  height: fit-content;
 }
 
 .chat_text {
@@ -544,6 +542,7 @@
     box-shadow: 5px 5px 5px 0px #d1d3fe;
     border-radius: 50px;
     width: fit-content;
+    /* width: 60%; */
     align-self: flex-end;
     background-color: white;
     z-index: 10;
@@ -564,6 +563,7 @@
 }
 
 .chat_input_section_inner {
+    position: relative;
     width: 90%;
     margin: auto;
     height: 80%;
@@ -602,6 +602,10 @@
     display: flex;
     margin: auto;
     gap: 15px;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
 .suggestion_main {
@@ -669,11 +673,11 @@
     align-items: flex-end;
 }
 .idea_compo_main{
-    position: fixed;
-    top: 80%;
-    left: 32%;
+    position: absolute;
+    bottom: 120%;
+    left: 13%;
     height: 30px;
-    width: 53.2%;
+    width: 71%;
     padding: 10px;
     border-radius: 15px;
     background-color: white;
@@ -944,6 +948,9 @@
     .notification_popup{
         right: 150px;
     }
+    .idea_arrow{
+        left: 5%;
+    }
 }
 
 @media (min-width:1500px) and (max-width:1700px) {
@@ -988,6 +995,9 @@
     .notification_popup{
         right: 150px;
     }
+    .idea_arrow{
+        left: 1%;
+    }
     
 }
 
@@ -1026,7 +1036,7 @@
         right: 120px;
     }
     .idea_arrow{
-        left: 1%;
+        left: 1.5%;
     }
 }
 
@@ -1262,9 +1272,7 @@
     .idea_arrow{
         left: 9.5%;
     }
-    .idea_compo_main{
-        left: 30%;
-    }
+ 
 
   
 }
@@ -1320,9 +1328,7 @@
     .idea_arrow{
         left: 7%;
     }
-    .idea_compo_main{
-        left: 32%;
-    }
+  
     .suggestion_first{
         flex-direction: column;
 
@@ -1425,10 +1431,6 @@
     .notification_popup{
         right: 90px;
     }
-    .idea_compo_main{
-        left: 2%;
-        width: 90%;
-    }
     .idea_arrow{
         left: 3%;
     }
@@ -1475,7 +1477,8 @@
         right: 90px;
     }
     .idea_compo_main{
-        top: 83%;
+        left: 0;
+        width: 93%;
     }
 
 }

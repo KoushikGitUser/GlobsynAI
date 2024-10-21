@@ -14,6 +14,8 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 import IdeasComponent from "../Components/IdeasComponent";
 import { TbBulbFilled } from "react-icons/tb";
 import { GoHubot } from "react-icons/go";
+import { BsFillCircleFill } from "react-icons/bs";
+import { HiMiniSun } from "react-icons/hi2";
 
 export default function ChatScreen() {
 
@@ -127,7 +129,9 @@ export default function ChatScreen() {
             style={{
               flexDirection: isChatting ? "column" : "row",
               alignItems: isChatting ? "" : "center",
-              margin:"auto"
+              margin:"auto",
+              overflowY:isChatting?"scroll":"hidden",
+              overflowX:"hidden"
             }}
             className="chat_area"
           >
@@ -141,12 +145,15 @@ export default function ChatScreen() {
                 if (items.text.length > 0) {
                   return (
                     <div
+                    className="chat_text_container"
                       style={{
-                        display: items.type === "user" ? "block" : "flex",
+                        display: items.type === "user" ? "static" : "flex",
                         alignSelf:
                           items?.type === "user" ? "flex-end" : "flex-start",
-                        alignItems: "center",
+                        alignItems: "baseline",
                         gap: "10px",
+                        marginRight:items?.type === "user"?"10px":"",
+                      
                       }}
                     >
                       {/* <img
@@ -157,8 +164,8 @@ export default function ChatScreen() {
                         }}
                         alt=""
                       /> */}
-                      <GoHubot style={{ display: items?.type === "user" ? "none" : "block",}} size={20} color={darkMode?"white":"black"} />
-                      <div key={index} style={{backgroundColor:chatColor,color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #d1d3fe"}} className="chat_text">
+                      <HiMiniSun style={{ display: items?.type === "user" ? "none" : "block",marginTop:"10px"}} size={25} color={darkMode?"white":"black"} />
+                      <div key={index} style={{backgroundColor:chatColor,color:darkMode?"white":"black",boxShadow:darkMode?"5px 5px 5px 0px #24164300":"5px 5px 5px 0px #d1d3fe",margin:items?.type === "user"?"0px 0px 0px auto":"",lineBreak:items?.type === "user" && items?.text?.split(" ").length === 1?"anywhere":"auto"}} className="chat_text">
                         {items?.text?.length > 0 ? items?.text : null}
                       </div>
                     </div>

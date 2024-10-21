@@ -61,7 +61,7 @@ export default function Appearance() {
          {darkMode?<LiaToggleOnSolid style={{cursor:"pointer"}} onClick={handleDarkMode} size={30} color='#8a70ab' />:<LiaToggleOffSolid style={{cursor:"pointer"}} onClick={handleDarkMode} size={30} color='grey' />}
          
         </div>
-        <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}} className='appe_settings_options '>
+        {/* <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}} className='appe_settings_options '>
          Chats Color
          <div>
          <div onClick={toggleChatColorPicker} style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className={darkMode?'manage_button_dark':'manage_button'}>
@@ -73,7 +73,7 @@ export default function Appearance() {
          </div>
         
 
-        {/* Chat color picker section */}
+    
          {showChatColorPicker && <div className='color_picker'>
           <div className='cross_wrapper'>
           <div style={{textAlign:"center",}}>
@@ -95,7 +95,7 @@ export default function Appearance() {
          </div>}
 
 
-         {/* Background color picker section */}
+    
          {showBgColorPicker && <div className='color_picker'>
           <div className='cross_wrapper'>
           <div style={{textAlign:"center",}}>
@@ -118,8 +118,8 @@ export default function Appearance() {
          
          
          
-        </div>
-        <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='appe_settings_options '>
+        </div> */}
+        {/* <div style={{borderBottom:darkMode?"1px solid #696969":"1px solid lightgrey"}}  className='appe_settings_options '>
         Background Color
         <div>
         <div onClick={toggleBgColorPicker} style={{border:darkMode?"1px solid #696969":"1px solid lightgrey"}} className={darkMode?'manage_button_dark':'manage_button'}>
@@ -131,7 +131,7 @@ export default function Appearance() {
         </div>
         
          
-        </div>
+        </div> */}
        
         {/* <div className='appe_settings_options '>
         Input Appearance
